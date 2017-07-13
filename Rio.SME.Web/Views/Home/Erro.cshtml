@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Erro";
+}
+
+<div class="errocontainerinterno container transparent">
+    <div class="row">
+        <div class="errointerno col-md-offset-4 col-md-4">
+            <div class="erroconteudointerno">
+                <div class="emotion">:(</div>
+                <div class="label">
+                    Não foi possível concluir esta ação, por favor tente novamente. Caso o problema persista, contate o suporte técnico.
+                </div>
+                <button class="button" onclick="location.href='@Url.Action("Inicial", "Home")'">Tentar Novamente</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,465 @@
+﻿/*@import url(reset.css);*/
+
+@page {
+    @top-left {
+        content: "TOP SECRET";
+        color: red;
+    }
+
+    @bottom-right {
+        content: counter(page);
+        font-style: italic;
+    }
+}
+
+.breakhere {
+   page-break-after: always;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+#container {
+}
+
+.titCentral {
+    font-size: 18px !important;
+    text-align: center;
+    font-family: Arial, Tahoma, Sans-Serif;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+#cabecalho {
+    border-bottom: 2px solid #c3c3c3;
+    display: table;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+    #cabecalho #nome {
+        float: left;
+        width: 49%;
+        overflow: hidden;
+    }
+
+    #cabecalho #unidade {
+        float: right;
+        width: 49%;
+        overflow: hidden;
+    }
+
+#nome h1 {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#unidade h2, #unidade h3, #unidade h4 {
+    text-align: right;
+    color: #555;
+    line-height: 20px;
+}
+
+#unidade h2 {
+    font-weight: bold;
+    font-size: 15px;
+    font-style: italic;
+}
+
+#unidade h4 {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#rodape {
+    border-top: 2px solid #c3c3c3;
+    margin-top: 20px;
+}
+
+    #rodape p {
+        color: #555;
+        text-align: center;
+        margin-top: 5px;
+    }
+
+        #rodape p span {
+            font-weight: bold;
+            margin-right: 55px;
+        }
+
+.linha {
+    width: 100%;
+    display: table;
+    border-left: 2px solid #c3c3c3;
+    margin: 8px 0;
+    padding: 0 5px;
+}
+
+    .linha p {
+        float: left;
+        margin: 5px 25px 5px 5px;
+        font-size: 14px;
+        color: #555;
+    }
+
+        .linha p span {
+            font-size: 18px;
+            color: #222;
+            line-height: 22px;
+        }
+
+.titRelatorio {
+    font-size: 18px !important;
+    text-align: center;
+    font-family: Arial, Tahoma, Sans-Serif;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+    table th {
+        color: #222;
+        text-align: center;
+        font-weight: bold;
+        padding: 5px 4px;
+        line-height: 22px;
+        border-bottom: 2px solid #444;
+        border-top: 2px solid #444;
+        font-size: 12px !important;
+    }
+
+    table tfoot td {
+        border-top: 2px solid #444;
+    }
+
+    table td {
+        color: #222;
+        padding: 4px 8px 4px 8px;
+        border-bottom: 1px solid #333;
+        font-size: 11px !important;
+    }
+
+    table .odd {
+        background: #eeffff;
+    }
+
+.bold {
+    font-weight: bold;
+}
+
+.fonte10 {
+    font-size: 10px;
+}
+
+.fonte12 {
+    font-size: 12px;
+}
+
+.fonte18 {
+    font-size: 18px;
+}
+
+.border-bottom {
+    border-bottom: 2px solid #444;
+}
+
+.border-top {
+    border-top: 2px solid #444;
+}
+
+table .italico {
+    font-style: italic;
+    font-size: 14px;
+}
+
+table .aling-right {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+    padding: 3px;
+}
+
+.right {
+    text-align: right;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+}
+
+.space {
+    padding-right: 55px;
+}
+
+
+.left {
+    text-align: left;
+    padding: 3px;
+}
+
+
+/***INPUT PARA TELA DE RELATORIOS - SEM BORDAS***/
+.divMargem {
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.labelinput {
+    position: relative;
+    color: #666;
+    font-size: 11px;
+    font-weight: bold;
+    display: block;
+    margin-top: 2px;
+    height: 19px !important;
+}
+
+.labelAssinatura {
+    position: relative;
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(255,255,255,255.25);
+    display: block;
+    margin-top: 2px;
+    height: 19px !important;
+}
+
+.inputRelatorioDinamico, .inputRelatorioDinamico:focus {
+    position: relative;
+    padding: 0px;
+    padding-top: 20px !important;
+    line-height: 15px;
+    height: 15px;
+    margin-bottom: 5px;
+    width: 100%;
+    font-family: 'helvetica neue', helvetica, arial,sans-serif;
+    font-size: 12px;
+    color: #444;
+    font-weight: bold;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    border-left: 0px !important;
+    border-right: 0px !important;
+    border-top: 0px !important;
+    border-bottom: 0px !important;
+    -webkit-box-shadow: inset 0 0 0 rgb(255,255,255) !important;
+    -moz-box-shadow: inset 0 0 0 rgb(255,255,255) !important;
+    box-shadow: inset 0 0 0 rgb(255,255,255) !important;
+}
+
+.inputRelatorio, .inputRelatorio:focus {
+    position: relative;
+    padding: 3px;
+    padding-left: 10px !important;
+    line-height: 15px;
+    height: 15px;
+    margin-bottom: 5px;
+    width: 100%;
+    font-family: 'helvetica neue', helvetica, arial,sans-serif;
+    font-size: 12px;
+    color: #444;
+    font-weight: bold;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    border-left: 1px solid #fff !important;
+    border-right: 1px solid #fff !important;
+    border-top: 1px solid #fff !important;
+    border-bottom: 1px solid #000 !important;
+    -webkit-box-shadow: inset 0 0 0 rgb(255,255,255) !important;
+    -moz-box-shadow: inset 0 0 0 rgb(255,255,255) !important;
+    box-shadow: inset 0 0 0 rgb(255,255,255) !important;
+}
+/*FIM INPUT PARA TELA DE RELATORIOS - SEM BORDAS*/
+
+
+/**GRID COLUNAS**/
+.d1 {
+    width: 5.333%;
+}
+
+.d2 {
+    width: 13.666%;
+}
+
+.d3 {
+    width: 22%;
+}
+
+.d4 {
+    width: 30.333%;
+}
+
+.d5 {
+    width: 38.666%;
+}
+
+.d6 {
+    width: 47%;
+}
+
+.d7 {
+    width: 55.333%;
+}
+
+.d8 {
+    width: 63.666%;
+}
+
+.d9 {
+    width: 72%;
+}
+
+.d10 {
+    width: 80.333%;
+}
+
+.d11 {
+    width: 88.666%;
+}
+
+.d12 {
+    width: 97%;
+}
+
+.empty {
+    height: 50px;
+    min-height: 50px;
+    max-height: 50px;
+}
+
+
+.d1, .d2, .d3, .d4, .d5, .d6, .d7, .d8, .d9, .d10, .d11, .d12 {
+    position: relative;
+    display: inline !important; /*relação com abas*/
+    float: left;
+    margin: 0 1.5%;
+    line-height: 19px;
+}
+
+.textSpanRel {
+    font-size: 11px !important;
+    font-family: Arial, 'Helvetica Neue', Tahoma !important;
+    font-weight: bold;
+    margin-top: 0px;
+    vertical-align: middle !important;
+    display: inline-block !important;
+    white-space: nowrap;
+}
+
+    .textSpanRel i {
+        font-weight: normal !important;
+    }
+
+/*FORMATAÇÃO CHECKBOX E DIV*/
+input[type=checkbox],
+input[type=radio] {
+    border: 1px solid #c0c0c0;
+    margin: 0 5px 0 0;
+    padding: 0;
+    font-size: 12px;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ededed), to(#fbfbfb));
+    -webkit-appearance: none;
+    -webkit-box-shadow: 1px 1px 1px #fff;
+    -webkit-border-radius: 0.25em;
+    vertical-align: text-top;
+    display: inline-block;
+}
+
+input[type=radio] {
+    -webkit-border-radius: 2em; /* Make radios round */
+    -o-border-radius: 2em;
+    border-radius: 2em;
+}
+
+/*SPAN PARA O TEXTO DOS CHECKBOX OU RADIO*/
+form span {
+    font-size: 11px;
+    font-family: 'Helvetica Neue', Tahoma, Arial;
+    vertical-align: middle;
+}
+
+.checkBox {
+    position: relative;
+    width: 100%;
+    height: 15px;
+    vertical-align: middle;
+    padding-top: 3px;
+    display: inline;
+    color: #333;
+    font-size: 12px;
+    font-weight: normal !important;
+}
+
+.divCheck {
+    padding-top: 20px;
+}
+
+
+input[type=checkbox]:checked::after {
+    content: "✔";
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    height: 12px;
+    line-height: 12px;
+}
+
+input[type=radio]:checked::after {
+    content: "•";
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    height: 12px;
+    line-height: 12px;
+}
+
+
+fieldset {
+    border-top: 1px ridge #999;
+    border-bottom: 1px solid #999;
+    border-left: 0px solid #999;
+    border-right: 0px;
+    padding: 6px 10px 10px 0px;
+    margin-top: 5px;
+}
+
+.fieldsetGrupo {
+    border-top: 1px solid #000;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px solid #000;
+}
+
+legend {
+    text-align: left;
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(255,255,255,255.25);
+    padding: 0px 4px 0px 4px;
+    margin-left: 20px;
+    line-height: 20px;
+}
+
+.familyHelvetica {
+    font-family: 'Helvetica Neue', Tahoma, Arial;
+}
+
+.familyArial {
+    font-family: Arial, 'Helvetica Neue', Tahoma !important;
+}

@@ -1,0 +1,5 @@
+C:\Users\gabriel.oliveira\Source\Repos\ProjectDDD\Rj.SME.Sismonrio.Identity\bin\Debug\Rj.SME.Sismonrio.Identity.dll
+C:\Users\gabriel.oliveira\Source\Repos\ProjectDDD\Rj.SME.Sismonrio.Identity\bin\Debug\Rj.SME.Sismonrio.Identity.pdb
+C:\Users\gabriel.oliveira\Source\Repos\ProjectDDD\Rj.SME.Sismonrio.Identity\obj\Debug\Rj.SME.Sismonrio.Identity.csprojResolveAssemblyReference.cache
+C:\Users\gabriel.oliveira\Source\Repos\ProjectDDD\Rj.SME.Sismonrio.Identity\obj\Debug\Rj.SME.Sismonrio.Identity.dll
+C:\Users\gabriel.oliveira\Source\Repos\ProjectDDD\Rj.SME.Sismonrio.Identity\obj\Debug\Rj.SME.Sismonrio.Identity.pdb

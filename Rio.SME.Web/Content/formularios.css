@@ -1,0 +1,1209 @@
+﻿@charset "utf-8";
+/*   Formularios    */
+
+* {
+    outline: none !important;
+    -moz-outline: none !important;
+}
+
+:focus {
+    outline: none;
+}
+
+a {
+    color: #377AD0;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #333;
+        cursor: pointer;
+    }
+
+
+label.caracteres {
+    font-size: 10px !important;
+    float: right !important;
+    font-family: 'Helvetica Neue', Tahoma, Arial !important;
+    font-weight: normal !important;
+    color: #2B363D !important;
+    vertical-align: top !important;
+    display: inline !important;
+    top: -10px !important;
+}
+
+
+form {
+    position: relative;
+    padding-top: 0px;
+    margin: 0px 0px auto 0px;
+    display: block;
+    overflow: hidden;
+    height: 100%;
+}
+
+/*resolução responsive formularios*/
+@media screen and (max-width:1600px) {
+    .forms {
+        width: 1400px;
+        margin: 1px auto;
+        position: relative;
+    }
+}
+
+@media screen and (max-width:1280px) {
+    .forms {
+        width: 960px;
+        margin: 1px auto;
+        position: relative;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .forms {
+        width: 760px;
+        margin: 1px auto;
+        position: relative;
+    }
+}
+
+
+fieldset {
+    background-color: #F7F7F7;
+    border-top: 1px ridge #999;
+    border-bottom: 1px solid #999;
+    border-left: 0px solid #999;
+    border-right: 0px;
+    padding: 6px 10px 10px 0px;
+    margin-top: 5px;
+    box-shadow: 0px 1px 0px #666;
+    -webkit-box-shadow: 0px 1px 0px #666;
+    -o-box-shadow: 0px 1px 0px #666;
+}
+
+legend {
+    text-align: left;
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(255,255,255,255.25);
+    padding: 0px 4px 0px 4px;
+    margin-left: 20px;
+}
+
+/*LABEL DOS INPUTS*/
+form div label {
+    position: relative;
+    color: #333;
+    font-size: 11px;
+    font-weight: bold;
+    /*text-shadow:0 1px 0 rgba(68,68,68,0.1);*/
+    display: block;
+    margin-top: 2px;
+    height: 19px !important;
+}
+/*LABEL DOS INPUTS*/
+.conteudoAba div label {
+    position: relative;
+    color: #333;
+    font-size: 11px;
+    font-weight: bold;
+    /*text-shadow:0 1px 0 rgba(68,68,68,0.1);*/
+    display: block;
+    margin-top: 2px;
+    height: 19px !important;
+}
+
+.conteudo-iframe-det label, .panel label {
+    position: relative;
+    color: #333;
+    font-size: 11px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(255,255,255,255.25);
+    display: block;
+    margin-top: 2px;
+    height: 19px !important;
+}
+
+.labelinput {
+    white-space: nowrap;
+    position: relative;
+    color: #333;
+    font-size: 11px;
+    font-weight: bold;
+    /*text-shadow:0 1px 0 rgba(255,255,255,255.25);*/
+    display: block;
+    margin-top: 2px;
+    height: 19px !important;
+}
+
+input, input[type="text"], textarea {
+    position: relative;
+    padding: 3px;
+    line-height: 15px;
+    height: 15px;
+    margin-bottom: 5px;
+    width: 100%;
+    font-family: 'helvetica neue', helvetica, arial,sans-serif;
+    font-size: 12px;
+    color: #444;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff));
+    -webkit-appearance: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #8C8C8C;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.08);
+    -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.08);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.08);
+    behavior: url(../Content/Pie/PIE.htc);
+}
+
+    input[type="file"] {
+        position: relative;
+        padding: 3px;
+        line-height: 15px;
+        height: 15px;
+        margin-bottom: 5px;
+        width: 100%;
+        font-size: 11px;
+        color: #fff;
+        cursor: pointer;
+        background: transparent !important;
+        box-shadow: none !important;
+        border: 0px !important;
+        opacity: 0;
+    }
+
+.upload {
+    background: url(../content/themes/images/botaoUpload.jpg) no-repeat 0px 19px;
+    cursor: pointer;
+}
+
+input[type="file"]:focus {
+    background: transparent;
+}
+
+
+.inputDisable {
+    z-index: 99999 !important;
+    position: absolute;
+    padding: 0px;
+    line-height: 25px;
+    height: 25px;
+    width: 101% !important;
+}
+
+
+.inputnone {
+    border: 1px solid #F7F7F7 !important;
+    border-radius: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid #000 !important;
+}
+
+.labelnone {
+    border: 1px solid #F7F7F7 !important;
+    border-radius: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+input[type="text"]:focus, textarea:focus {
+    background: #fff;
+    border: 1px solid #8C8C8C;
+    -o-box-shadow: inset 0 1px 2px rgba(0,0,0,.09);
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.09);
+    -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.09);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.09);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    behavior: url(../Content/Pie/PIE.htc);
+}
+
+
+
+
+
+input[type="text"]:disabled, textarea:disabled, input[readonly="readonly"], input[readonly], input[type="checkbox"]:disabled {
+    background: #f4f4f4 !important;
+    background: rgba(244,244,244,9) !important;
+    background: -webkit-linear-gradient(top, #f4f4f4, #f4f4f4) !important;
+    background: -moz-linear-gradient(top, #f4f4f4, #f4f4f4) !important;
+    background: -o-linear-gradient(top, #f4f4f4, #f4f4f4) !important;
+    background: linear-gradient(to bottom, #f4f4f4, #f4f4f4) !important;
+    -pie-background: linear-gradient(#f4f4f4, #f4f4f4) !important;
+    color: #999 !important;
+    border: 1px solid #8C8C8C;
+    -o-box-shadow: inset 0 1px 2px rgba(0,0,0,.09);
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.09);
+    -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.09);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.09);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    behavior: url(../Content/Pie/PIE.htc) !important;
+}
+
+.desabilitado {
+    background: #EEE !important;
+    cursor: not-allowed;
+    color: #777;
+}
+
+
+
+/*ABAIXO COMENTADO ESTÁ O MODELO PARA INPUT COM BOTÃO - NO INPUT USE O CLASS="C2_bt1 
+    (onde C2 é referencia a D2 da coluna ou a que estiver sendo usada e o _bt1 ou _bt2 para o número de botões ao lado do INPUT) " Exemplo abaixo. */
+/*<div class="d2"><input type="text" class="c2_bt2"/><button class=buttonLupa></button><button class=buttonPlus p2></button> (p2 indica a posição do segundo botão)*/
+
+/*CLASS PARA INPUT QUE RECEBE 1 ou 2 BOTÕES ÍCONES AO LADO*/
+.c1_bt1 {
+    width: 75% !important;
+}
+
+.c2_bt1 {
+    width: 81% !important;
+}
+
+.c3_bt1 {
+    width: 88% !important;
+}
+
+.c4_bt1 {
+    width: 91% !important;
+}
+
+.c5_bt1 {
+    width: 93% !important;
+}
+
+.c6_bt1 {
+    width: 94% !important;
+}
+
+.c7_bt1 {
+    width: 95% !important;
+}
+
+.c8_bt1 {
+    width: 95.5% !important;
+}
+
+.c9_bt1 {
+    width: 96% !important;
+}
+
+.c10_bt1 {
+    width: 96.5% !important;
+}
+
+.c11_bt1 {
+    width: 97% !important;
+}
+
+.c12_bt1 {
+    width: 97.5% !important;
+}
+
+.c2_bt2 {
+    width: 80% !important;
+}
+
+.c3_bt2 {
+    width: 88% !important;
+}
+
+.c4_bt2 {
+    width: 91% !important;
+}
+
+.c5_bt2 {
+    width: 93% !important;
+}
+
+.c6_bt2 {
+    width: 94% !important;
+}
+
+.c7_bt2 {
+    width: 95% !important;
+}
+
+.c8_bt2 {
+    width: 95.5% !important;
+}
+
+.c9_bt2 {
+    width: 96% !important;
+}
+
+.c10_bt2 {
+    width: 96.5% !important;
+}
+
+.c11_bt2 {
+    width: 97% !important;
+}
+
+.c12_bt2 {
+    width: 97.5% !important;
+}
+
+/*CLASS PARA INPUT QUE RECEBE 1 BOTÃO SUBMIT
+<div class="d2"><label class="labelinput">Exemplo: <em>*</em></label><input type="text" class="c2_ibutton1" /><button class="ibutton azul" data-original-title="Procurar Cadastro">Procurar</button></div>*/
+.c2_ibutton1 {
+    width: 53% !important;
+}
+
+.c3_ibutton1 {
+    width: 71% !important;
+}
+
+.c4_ibutton1 {
+    width: 79% !important;
+}
+
+.c5_ibutton1 {
+    width: 83% !important;
+}
+
+.c6_ibutton1 {
+    width: 86% !important;
+}
+
+.c7_ibutton1 {
+    width: 88% !important;
+}
+
+.c8_ibutton1 {
+    width: 90% !important;
+}
+
+.c9_ibutton1 {
+    width: 92% !important;
+}
+
+.c10_ibutton1 {
+    width: 94% !important;
+}
+
+.c11_ibutton1 {
+    width: 96% !important;
+}
+
+.c12_ibutton1 {
+    width: 98% !important;
+}
+
+.p2 {
+    right: -14px !important;
+}
+
+.p2buttonIcon {
+    right: -65px !important;
+}
+
+.p2check {
+    right: -18px !important;
+    top: -3px !important;
+}
+
+.p3 {
+    right: -32px !important;
+}
+
+
+/*.pA{margin-left:7px!important;}
+.pB{margin-left:30px!important;}
+.pC{margin-left:45px!important;}*/
+
+.pA {
+    margin-left: 7px !important;
+}
+
+.pB {
+    margin-left: 50px !important;
+}
+
+.pC {
+    margin-left: 65px !important;
+}
+
+
+.ibutton {
+    position: absolute;
+    display: inline;
+    vertical-align: top;
+    padding: 0px;
+    width: 64px;
+    height: 22px;
+    margin-left: 2px;
+    font-size: 11px;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px rgba(255, 255, 255, 0.8);
+    background-clip: padding-box;
+    border: 1px solid;
+    cursor: pointer;
+}
+
+    .ibutton:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        pointer-events: none;
+        background-image: -webkit-radial-gradient(center top, farthest-corner, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+        background-image: -moz-radial-gradient(center top, farthest-corner, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+        background-image: -o-radial-gradient(center top, farthest-corner, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+        background-image: radial-gradient(center top, farthest-corner, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+    }
+
+    .ibutton:hover:before {
+        background-image: -webkit-radial-gradient(farthest-corner, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.03));
+        background-image: -moz-radial-gradient(farthest-corner, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.03));
+        background-image: -o-radial-gradient(farthest-corner, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.03));
+        background-image: radial-gradient(farthest-corner, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.03));
+    }
+
+    .ibutton:active {
+        -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+
+        .ibutton:active:before {
+            content: none;
+        }
+
+    .ibutton.cinza {
+        border-color: #cecece #bababa #a8a8a8;
+        border-radius: 3px 3px 2px 2px;
+        background-image: -webkit-linear-gradient(top, #f1f1f1 0%, #dfdfdf 70%, #dadada 100%);
+        background-image: -moz-linear-gradient(top, #f1f1f1 0%, #dfdfdf 70%, #dadada 100%);
+        background-image: -o-linear-gradient(top, #f1f1f1 0%, #dfdfdf 70%, #dadada 100%);
+        background-image: linear-gradient(to bottom, #f1f1f1 0%, #dfdfdf 70%, #dadada 100%);
+    }
+
+        .ibutton.cinza:active {
+            vertical-align: -5px;
+            margin-bottom: 0;
+            padding: 1px 2px 0;
+            border-width: 0;
+            border-radius: 3px;
+            -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(0, 0, 0, 0.4), 0 1px white;
+            box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(0, 0, 0, 0.4), 0 1px white;
+        }
+
+    .ibutton.cinzaEscuro {
+        color: #fff;
+        border-radius: 3px 3px 2px 2px;
+        text-shadow: 0 1px #666;
+        background: #90aabd;
+        border-color: #909eab #768791 #50606e;
+        background-image: -webkit-linear-gradient(top, #bccbd7 0%, #90aabd 70%, #83a0b4 100%);
+        background-image: -moz-linear-gradient(top, #bccbd7 0%, #90aabd 70%, #83a0b4 100%);
+        background-image: -o-linear-gradient(top, #bccbd7 0%, #90aabd 70%, #83a0b4 100%);
+        background-image: linear-gradient(to bottom, #bccbd7 0%, #90aabd 70%, #83a0b4 100%);
+    }
+
+        .ibutton.cinzaEscuro:active {
+            vertical-align: -5px;
+            margin-bottom: 0;
+            padding: 1px 2px 0;
+            border-width: 0;
+            border-radius: 3px;
+            background: #90aabd;
+            -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(0, 0, 0, 0.4), 0 1px white;
+            box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(0, 0, 0, 0.4), 0 1px white;
+        }
+
+    .ibutton.preto {
+        color: #f1f1f1;
+        border-radius: 3px 3px 2px 2px;
+        text-shadow: 0 1px #111;
+        background: #4f4f4f;
+        border-color: #505050 #414141 #2c2c2c;
+        background-image: -webkit-linear-gradient(top, dimgrey 0%, #4f4f4f 70%, #3c3c3c 100%);
+        background-image: -moz-linear-gradient(top, dimgrey 0%, #4f4f4f 70%, #3c3c3c 100%);
+        background-image: -o-linear-gradient(top, dimgrey 0%, #4f4f4f 70%, #3c3c3c 100%);
+        background-image: linear-gradient(to bottom, dimgrey 0%, #4f4f4f 70%, #3c3c3c 100%);
+    }
+
+        .ibutton.preto:active {
+            vertical-align: -5px;
+            margin-bottom: 0;
+            padding: 1px 2px 0;
+            border-width: 0;
+            border-radius: 3px;
+            background: #4f4f4f;
+            -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(0, 0, 0, 0.4), 0 1px white;
+            box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(0, 0, 0, 0.4), 0 1px white;
+        }
+
+
+.buttonPlus {
+    position: absolute;
+    border: 0px solid rgb(255,255,255) !important;
+    border: 0px !important;
+    display: inline;
+    margin-top: 2px;
+    padding: 0px;
+    width: 16px;
+    height: 19px;
+    cursor: pointer;
+    background: rgb(255,255,255);
+    background: url(../content/themes/images/icoPlus.png) no-repeat right center;
+    -o-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -webkit-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -moz-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    box-shadow: inset 0 1px 2px rgb(255,255,255);
+}
+
+.buttonMinus {
+    position: absolute;
+    border: 0px solid rgb(255,255,255) !important;
+    border: 0px !important;
+    display: inline;
+    margin-top: 2px;
+    padding: 0px;
+    width: 16px;
+    height: 19px;
+    cursor: pointer;
+    background: rgb(255,255,255);
+    background: url(../content/themes/images/icoMinus.png) no-repeat right center;
+    -o-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -webkit-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -moz-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    box-shadow: inset 0 1px 2px rgb(255,255,255);
+}
+
+
+.buttonDownload {
+    position: absolute;
+    border: 0px solid rgb(255,255,255) !important;
+    border: 0px !important;
+    display: inline;
+    margin-top: 2px;
+    padding: 0px;
+    width: 16px;
+    height: 19px;
+    cursor: pointer;
+    background: rgb(255,255,255);
+    background: url(../content/themes/images/icoDownload.png) no-repeat right center;
+    -o-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -webkit-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -moz-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    box-shadow: inset 0 1px 2px rgb(255,255,255);
+}
+
+.btnBorda {
+    border: 1px !important;
+    border-color: #999 !important;
+    border-style: solid !important;
+    cursor: pointer;
+    background-color: #fff !important;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+
+.btn1 {
+    top: -28px;
+    left: 18.5%; /*97.5%*/
+    border: 1px !important;
+    border-color: #999 !important;
+    border-style: solid !important;
+    cursor: pointer;
+    background-color: #fff !important;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.btn2 {
+    top: -28px;
+    left: 21%; /*100%*/
+    border: 1px !important;
+    border-color: #999 !important;
+    border-style: solid !important;
+    cursor: pointer;
+    background-color: #fff !important;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.5);
+    border: 1px solid #999 !important;
+}
+
+.btn3 {
+    top: -28px;
+    left: 25%;
+    cursor: pointer;
+    background-color: transparent !important;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+
+.btn1:hover, .btn2:hover, btnBorda {
+    background-color: #E6E6E6 !important;
+}
+
+.btn1:active, .btn2:active, btnBorda {
+    background-color: #DFDFDF !important;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+
+
+
+.textSpan {
+    font-size: 11px !important;
+    font-family: 'Helvetica Neue', Tahoma, Arial !important;
+    font-weight: normal;
+    display: inline !important;
+    margin: 0 10px 0 5px;
+}
+
+.textSpanBold {
+    font-size: 11px !important;
+    font-family: 'Helvetica Neue', Tahoma, Arial !important;
+    font-weight: bold !important;
+    display: inline !important;
+    margin: 0 10px 0 5px;
+}
+
+
+.textSpanCodigo {
+    font-size: 11px !important;
+    font-family: 'Helvetica Neue', Tahoma, Arial !important;
+    font-weight: normal;
+    margin-right: 2px;
+    vertical-align: middle !important;
+    display: inline !important;
+}
+
+
+label.textSpanBold {
+    font-size: 11px !important;
+    font-family: 'Helvetica Neue', Tahoma, Arial !important;
+    font-weight: bold !important;
+    vertical-align: middle !important;
+    display: inline !important;
+    margin: 6px;
+}
+
+
+
+
+
+.buttonExcluir {
+    position: absolute;
+    border: 0px solid rgb(255,255,255);
+    border: 0px;
+    display: inline;
+    margin-top: 2px;
+    padding: 0px;
+    width: 16px;
+    height: 19px;
+    cursor: pointer;
+    background: rgb(255,255,255);
+    background: url(../content/themes/images/icoExcluir.png) no-repeat right center;
+    -o-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -webkit-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -moz-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    box-shadow: inset 0 1px 2px rgb(255,255,255);
+}
+
+.buttonCalendar {
+    position: absolute;
+    border: 0px solid rgb(255,255,255) !important;
+    border: 0px !important;
+    display: inline;
+    margin-top: 2px;
+    padding: 0px;
+    width: 16px;
+    height: 19px;
+    cursor: pointer;
+    background: rgb(255,255,255);
+    background: url(../content/themes/images/calendar.png) no-repeat right center;
+    -o-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -webkit-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -moz-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    box-shadow: inset 0 1px 2px rgb(255,255,255);
+}
+
+.buttonInfo {
+    position: absolute;
+    border: 0px solid rgb(255,255,255) !important;
+    border: 0px !important;
+    display: inline;
+    margin-top: 2px;
+    padding: 0px;
+    width: 16px;
+    height: 19px;
+    cursor: pointer;
+    background: rgb(255,255,255);
+    background: url(../content/themes/images/iconPop.png) no-repeat right center;
+    -o-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -webkit-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -moz-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    box-shadow: inset 0 1px 2px rgb(255,255,255);
+}
+
+.buttonLupa {
+    position: absolute;
+    border: 0px solid rgb(255,255,255);
+    border: 0px;
+    display: inline;
+    margin-top: 2px;
+    padding: 0px;
+    width: 16px;
+    height: 19px;
+    cursor: pointer;
+    background: rgb(255,255,255);
+    background: url(../content/themes/images/icoLupa.png) no-repeat right center;
+    -o-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -webkit-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -moz-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    box-shadow: inset 0 1px 2px rgb(255,255,255);
+}
+
+.buttonLupaDoc {
+    position: absolute;
+    border: 0px solid rgb(255,255,255);
+    border: 0px;
+    display: inline;
+    margin-top: 2px;
+    padding: 0px;
+    width: 16px;
+    height: 19px;
+    cursor: pointer;
+    background: rgb(255,255,255);
+    background: url(../content/themes/images/icoLupaDoc.png) no-repeat right center;
+    -o-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -webkit-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -moz-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    box-shadow: inset 0 1px 2px rgb(255,255,255);
+}
+
+
+.buttonPoligono {
+    position: absolute;
+    border: 0px solid rgb(255,255,255);
+    border: 0px;
+    display: inline;
+    margin-top: 2px;
+    padding: 0px;
+    width: 16px;
+    height: 19px;
+    cursor: pointer;
+    background: rgb(255,255,255);
+    background: url(../content/themes/images/icoPoligono.png) no-repeat right center;
+    -o-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -webkit-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -moz-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    box-shadow: inset 0 1px 2px rgb(255,255,255);
+}
+
+.buttonAdd {
+    position: absolute;
+    border: 0px solid rgb(255,255,255) !important;
+    border: 0px !important;
+    display: inline;
+    margin-top: 2px;
+    padding: 0px;
+    width: 16px;
+    height: 19px;
+    cursor: pointer;
+    background: rgb(255,255,255);
+    background: url(../content/themes/images/icoAdd.png) no-repeat right center;
+    -o-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -webkit-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -moz-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    box-shadow: inset 0 1px 2px rgb(255,255,255);
+}
+
+.buttonEditar {
+    position: absolute;
+    border: 0px solid rgb(255,255,255) !important;
+    border: 0px !important;
+    display: inline;
+    margin-top: 2px;
+    padding: 0px;
+    width: 16px;
+    height: 19px;
+    cursor: pointer;
+    background: rgb(255,255,255);
+    background: url(../content/themes/images/icoEditar.png) no-repeat right center;
+    -o-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -webkit-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -moz-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    box-shadow: inset 0 1px 2px rgb(255,255,255);
+}
+
+
+.buttonDownload {
+    position: absolute;
+    border: 0px solid rgb(255,255,255);
+    border: 0px;
+    display: inline;
+    margin-top: 2px;
+    padding: 0px;
+    width: 16px;
+    height: 19px;
+    cursor: pointer;
+    background: rgb(255,255,255);
+    background: url(../content/themes/images/icoDownload.png) no-repeat right center;
+    -o-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -webkit-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -moz-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    box-shadow: inset 0 1px 2px rgb(255,255,255);
+}
+
+.buttonApagar {
+    position: absolute;
+    border: 0px solid rgb(255,255,255);
+    border: 0px;
+    display: inline;
+    margin-top: 2px;
+    padding: 0px;
+    width: 16px;
+    height: 19px;
+    cursor: pointer;
+    background: rgb(255,255,255);
+    background: url(../content/themes/images/icoApagar.png) no-repeat right center;
+    -o-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -webkit-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -moz-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    box-shadow: inset 0 1px 2px rgb(255,255,255);
+}
+
+
+.buttonLegenda {
+    position: absolute;
+    border: 0px solid rgb(255,255,255) !important;
+    border: 0px !important;
+    display: inline;
+    margin-top: 2px;
+    padding: 0px;
+    width: 16px;
+    height: 19px;
+    cursor: pointer;
+    background: rgb(255,255,255);
+    background: url(../content/themes/images/icoAtencao.png) no-repeat right center;
+    -o-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -webkit-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -moz-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    box-shadow: inset 0 1px 2px rgb(255,255,255);
+}
+
+
+.btn-apv {
+    position: absolute;
+    border: 0px solid rgb(255,255,255) !important;
+    border: 0px !important;
+    display: inline;
+    margin-top: 2px;
+    margin-left: 16px;
+    padding: 0px;
+    width: 16px;
+    height: 19px;
+    cursor: pointer;
+    background: rgb(255,255,255);
+    -o-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -webkit-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -moz-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    box-shadow: inset 0 1px 2px rgb(255,255,255);
+}
+
+    .btn-apv.agd {
+        background: url(../content/themes/images/icoAguardo.png) no-repeat right center;
+    }
+
+    .btn-apv.apv {
+        background: url(../content/themes/images/icoAprovado.png) no-repeat right center;
+    }
+
+    .btn-apv.ngd {
+        background: url(../content/themes/images/icoNegado.png) no-repeat right center;
+    }
+
+.icoAtencao {
+    background: url(../content/themes/images/icoAtencao.png) no-repeat center center;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    padding: 0px !important;
+    margin-left: 3px !important;
+}
+
+
+
+input[type=checkbox],
+input[type=radio] {
+    border: 1px solid #ACACAC !important;
+    /*margin: 0.4em 0 0!important;*/
+    padding: 0 !important;
+    margin: 0;
+    font-size: 16px !important;
+    line-height: 1em !important;
+    width: 14px !important;
+    height: 14px !important;
+    background: #fff !important;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#ffffff)) !important;
+    -webkit-appearance: none !important;
+    -webkit-box-shadow: 1px 1px 1px #fff !important;
+    -webkit-border-radius: 0.25em !important;
+    vertical-align: text-top !important;
+    display: inline-block !important;
+}
+
+input[type=radio] {
+    border-radius: 2em !important; /* Make radios round */
+    -webkit-border-radius: 2em !important; /* Make radios round */
+    -moz-border-radius: 2em !imprortant; /* Make radios round */
+}
+
+
+input[type=checkbox]:checked::after {
+    content: "✔" !important;
+    display: block !important;
+    text-align: center !important;
+    font-size: 15px !important;
+    font-weight: bold;
+    height: 14px !important;
+    line-height: 14px !important;
+    color: #5CB85C;
+}
+
+
+input[type=radio]:checked::after {
+    content: "•" !important;
+    display: block !important;
+    width: 12px !important;
+    height: 14px !important;
+    line-height: 13px !important;
+    font-size: 31px !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    color: #63A0D3;
+}
+
+
+select {
+    padding: 0px;
+    margin-bottom: 5px;
+    width: 100%;
+    height: 22px;
+    min-height: 23px;
+    max-height: 22px;
+    font-family: 'helvetica neue', helvetica, arial,sans-serif;
+    font-size: 12px;
+    color: #666;
+    border-color: #ACACAC;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.09);
+    -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.09);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.09);
+    background: url(../content/themes/images/select.png) no-repeat right center #ffffff !important; /*from(#F8FAFC), to(#EFF3F8), -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fbfbfb), to(#ededed))*/
+    background: -moz-linear-gradient(19% 75% 90deg,#ededed, #fbfbfb);
+    background-color: #fff;
+}
+
+    select:focus {
+        background: url(../content/themes/images/select.png) no-repeat right center; /*from(#F8FAFC), to(#EFF3F8), -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fbfbfb), to(#ededed))*/
+        background: -moz-linear-gradient(19% 75% 90deg,#ededed, #fbfbfb);
+        background-color: #fff;
+    }
+
+    select:disabled {
+        color: #666 !important;
+        background: #f4f4f4;
+        background: url(../content/themes/images/selectDisable.png) no-repeat right center, -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fbfbfb), to(#ededed)); /*from(#F8FAFC), to(#EFF3F8)*/
+        background: -moz-linear-gradient(19% 75% 90deg,#ededed, #fbfbfb);
+    }
+
+    select:read-only, select[readonly="readonly"] {
+        color: #666 !important;
+        background: rgb(244,244,244);
+        background: #f4f4f4;
+        background: url(../content/themes/images/selectDisable.png) no-repeat right center, -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fbfbfb), to(#ededed)); /*from(#F8FAFC), to(#EFF3F8)*/
+        background: -moz-linear-gradient(19% 75% 90deg,#ededed, #fbfbfb);
+    }
+
+.obrigatorio {
+    /*border: 1px solid #B20000;*/
+    border: 1px solid #D38F9A;
+}
+
+em {
+    color: #E3041B;
+    font: 12px 'Helvetica Neue', Arial;
+    font-weight: bold;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+::-webkit-input-placeholder {
+    color: #666;
+    font-family: 'helvetica neue', helvetica, arial,sans-serif;
+    font-size: 12px;
+}
+
+:-moz-placeholder {
+    color: #666;
+    font-family: 'helvetica neue', helvetica, arial,sans-serif;
+    font-size: 12px;
+}
+
+/*INICIO DO TOOLTIP*/
+.tooltip {
+    z-index: 99999;
+    position: absolute;
+    display: block;
+    color: #fff !important;
+    font-size: 11px;
+    font-family: Tahoma;
+    text-shadow: none;
+    line-height: 1.4;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    visibility: visible;
+    white-space: nowrap;
+}
+
+    .tooltip.in {
+        opacity: 0.8;
+        filter: alpha(opacity=80);
+    }
+
+    .tooltip.top {
+        padding: 5px 0;
+        margin-top: -10px;
+    }
+
+    .tooltip.right {
+        padding: 0 5px;
+        margin-left: 3px;
+    }
+
+    .tooltip.bottom {
+        padding: 5px 0;
+        margin-top: 3px;
+    }
+
+    .tooltip.left {
+        padding: 0 5px;
+        margin-left: -13px;
+    }
+
+.tooltip-inner {
+    padding: 8px;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    background-color: #333; /*#1B6897*/
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.tooltip-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+}
+
+.tooltip.top .tooltip-arrow {
+    bottom: 0;
+    left: 50%;
+    margin-left: -5px;
+    border-top-color: #333; /*#144D6D*/
+    border-width: 5px 5px 0;
+}
+
+.tooltip.right .tooltip-arrow {
+    top: 50%;
+    left: 0;
+    margin-top: -5px;
+    border-right-color: #333;
+    border-width: 5px 5px 5px 0;
+}
+
+.tooltip.left .tooltip-arrow {
+    top: 50%;
+    right: 0;
+    margin-top: -5px;
+    border-left-color: #333;
+    border-width: 5px 0 5px 5px;
+}
+
+.tooltip.bottom .tooltip-arrow {
+    top: 0;
+    left: 50%;
+    margin-left: -5px;
+    border-bottom-color: #333;
+    border-width: 0 5px 5px;
+}
+/*FIM DO TOOLTIP*/
+
+.buttonPlus {
+    position: absolute;
+    border: 0px solid rgb(255,255,255) !important;
+    border: 0px !important;
+    display: inline;
+    margin-top: 2px;
+    padding: 0px;
+    width: 16px;
+    height: 19px;
+    cursor: pointer;
+    background: rgb(255,255,255);
+    background: url(../content/themes/images/icoPlus.png) no-repeat right center;
+    -o-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -webkit-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -moz-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    box-shadow: inset 0 1px 2px rgb(255,255,255);
+}
+
+.buttonExcluir {
+    position: absolute;
+    border: 0px solid rgb(255,255,255) !important;
+    border: 0px !important;
+    display: inline;
+    margin-top: 2px;
+    padding: 0px;
+    width: 16px;
+    height: 19px;
+    cursor: pointer;
+    background: rgb(255,255,255);
+    background: url(../content/themes/images/icoExcluir.png) no-repeat right center;
+    -o-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -webkit-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    -moz-box-shadow: inset 0 1px 2px rgb(255,255,255);
+    box-shadow: inset 0 1px 2px rgb(255,255,255);
+}
+
+label.labelOBS {
+    color: #206699 !important;
+    font-style: italic;
+    font-size: 10.5px;
+    font-weight: normal;
+    line-height: 6px;
+}
+
+.nowrap {
+    white-space: nowrap;
+}

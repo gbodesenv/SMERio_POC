@@ -1,0 +1,376 @@
+﻿@using Rio.SME.Web.Generico
+@using Rio.SME.Domain.Enums;
+@using StackExchange.Profiling
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/gridCss")
+    @Styles.Render("~/Content/autoCompleteCss")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @{
+        if (Html.IsAmbienteNT())
+        {
+            @MiniProfiler.RenderIncludes()
+            <script>
+                $(function () {
+                    $('body').on("click", "a.profiler-queries-show", function () {
+                        $('div.profiler-result > div.profiler-queries > table > tbody> tr > td').each(function () {
+                            $(this).css({ 'max-width': 'none', 'white-space': 'normal' });
+                        });
+                    });
+                });
+            </script>
+        }
+    }
+
+    <script src="~/Scripts/libs/jquery.signalR-2.2.0.js"></script>
+
+    <script src="~/signalr/hubs"></script>
+
+    <meta name="description" content="SME" />
+</head>
+<body>
+    @RenderSection("scripts", required: false)
+
+    <!-- CABEÇALHO, LOGO, TÍTULO SISTEMA-->
+    <div class="header">
+        <div class="logoCab clickVoltaPaginaInicial"></div>
+        <div class="logoTituloCab hidden-xs clickVoltaPaginaInicial">
+            <label class="clickVoltaPaginaInicial">SME - Sistema de Monitoramento da Qualidade da Educação Infantil </label>
+        </div>
+        <div class="barraUsuario">
+            <label class="lbl_usr" data-original-title="Usuário do Sistema">@UtilWeb.UsuarioLogado.Nome</label>
+            <label class="lbl_funcao" data-original-title="Usuário do Sistema">@UtilWeb.UsuarioLogado.NomeCargoPrincipal / @UtilWeb.UsuarioLogado.NomeUnidadeGestora</label>
+        </div>
+    </div>
+    <!--FIM  CABEÇALHO, LOGO, TÍTULO SISTEMA-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Menu</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand visible-xs-block" href="#">Menu</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    @if (Session["UsuarioLogado"] != null)
+                    {
+                    @(Html.HelperMenu("Cadastros Básicos")     
+                          .AdicionarItemMenuPrincipal(Url.Action("Listar", "Usuario"), FuncionalidadeSeguranca.ListarUsuarioArea, "Usuários")
+                    .Render())
+                    }
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right icones">
+                    <li id="notification_li">
+                        <span id="notification_count" data-bind="text: $root.contador, attr: { class: $root.notificationCountClass }, visible: $root.contador() > 0"></span>
+                        <a href="#" id="notificationLink" class="fa fa-bell" data-toggle="tooltip" title="Notificações"></a>
+                        <div id="notificationContainer">
+                            <div id="notificationTitle">Notificações</div>
+                            <div id="notificationsBody" class="notifications">
+                                <!--ko if: ($root.ListaNotificacoes().length > 0)-->
+                                <ul class="notificacoes" data-bind="foreach: $root.ListaNotificacoes">
+                                    <!--ko if: ($index() <= 9)-->
+                                    <li data-bind="text: Mensagem, attr: { class: NaoLidoClass }, click: function() { controllerNotificacao.AtualizarMensagemLida(namespaceNotificacao, $index()) } "></li>
+                                    <!--/ko-->
+                                </ul>
+                                <!--/ko-->
+                                <!--ko if: ($root.ListaNotificacoes().length == 0)-->
+                                <ul style="height:33px" class="notificacoes">
+                                    <li style="text-align: center" data-bind="text: 'Não há novas notificações.'"></li>
+                                </ul>
+                                <!--/ko-->
+                                <div id="notificationFooter"><a href="@Url.Action("Listar", "Notificacao")">Ver Todas</a></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a data-toggle="tooltip" title="Trocar a Unidade Gestora" href="@Url.Action("TrocarUnidadeGestora", "Home")" class="fa fa-exchange"></a></li>
+                    @Html.Hidden("hdnUrlTrocarUnidadeGestora", Url.Action("TrocarUnidadeGestora"))
+                    @*<li><a title="Voltar para a Página Inicial" href="@Url.Action("Inicial","Home")" class="icoHome"></a></li>*@
+                    <li><a data-toggle="tooltip" href="javascript:void(0);" title="Sair do Sistema" url='@Url.Action("Deslogar", "Home")' id="btnSairSistema" class="fa fa-sign-out"></a></li>
+                    @Html.Hidden("hdnUrlDeslogar", Url.Action("Deslogar", "Home"))
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+
+
+
+
+    <script>
+        $(function () {
+
+            $("#btnSairSistema").click(function () {
+                $.ajax({
+                    cache: false,
+                    data: null,
+                    type: 'POST',
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    url: $("#hdnUrlDeslogar").val(),
+                    success: function (data) {
+                        App.Util.TratarRetorno(data, function () {
+                            window.onbeforeunload = null;
+                            window.location = data.url;
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        $(function () {
+            window.prettyPrint && prettyPrint();
+            $('.nav-tabs:first').tabdrop();
+            $('.nav-tabs:last').tabdrop({ text: 'Mais' });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(document).one("ajaxStop", function () {
+                setTimeout(function () {
+                    if (location.hash) {
+                        setTimeout(function () {
+                            $('a[href=' + location.hash + ']').tab('show').trigger('click');
+                        }, 300);
+                    }
+                }, 300);
+            });
+
+            $(window).on("beforeunload", function (event) {
+                $.ajax({
+                    type: 'POST',
+                    data: JSON.stringify({ hash: location.hash }),
+                    url: UrlAction("Base/SalvarHashPagina"),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    async: false
+                });
+            });
+
+            $(document.body).on("click", "a[data-toggle='tab']", function (event) {
+                var baseUrl = window.location.href.split('#')[0];
+                window.location.replace(baseUrl + this.getAttribute("href"));
+            });
+        });
+
+    </script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#notificationLink").click(function () {
+                $("#notificationContainer").fadeToggle(300);
+                return false;
+            });
+
+            $(document).mouseup(function (e) {
+
+                var container = $("#notificationContainer");
+                var containerLink = $("#notificationLink");
+
+                if ((!container.is(e.target) && container.has(e.target).length === 0) &&
+                (!containerLink.is(e.target) && containerLink.has(e.target).length === 0)) {
+                    container.hide();
+                }
+
+            });
+
+            $(".clickVoltaPaginaInicial").click(function () {
+                window.location = UrlAction("Home/Inicial");
+            });
+
+        });
+    </script>
+
+    @* TEMPO DE SESSÃO *@
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var horaAberturaPagina = new Date();
+            var timeoutMinutos = $('#HdnTimeoutSession').val();
+            var horaTimeout = new Date(horaAberturaPagina.getTime() + (timeoutMinutos * 60 * 1000));
+
+            setInterval(function () {
+                var tempoRestante = Date.parse(horaTimeout) - Date.parse(new Date());
+
+                var seconds = Math.floor((tempoRestante / 1000) % 60);
+                var minutes = Math.floor((tempoRestante / 1000 / 60) % 60);
+
+                var stringLabel = minutes + "m " + seconds + "s";
+                $('#timerContadorSessao').text(stringLabel);
+
+                if (minutes < 1) {
+                    $('.contadorSessao > * ').css("color", "#f66f6f");
+                    $('.contadorSessao').css("border-color", "#f66f6f");
+                }
+
+                if (minutes <= 0 && seconds <= 0) {
+                    $.ajax({
+                        cache: false,
+                        data: JSON.stringify({ returnUrl: encodeURIComponent(window.location.href.replace(window.location.origin, "")) }),
+                        type: 'POST',
+                        dataType: "json",
+                        async: false,
+                        contentType: "application/json; charset=utf-8",
+                        url: UrlAction("Home/Timeout"),
+                        success: function (data) {
+                            App.Util.TratarRetorno(data, function () {
+                                window.onbeforeunload = null;
+                                window.location = data.url;
+                            });
+                        }
+                    });
+                }
+            }, 1000);
+        });
+    </script>
+
+    <div title="Tempo restante de sessão" id="contadorSessao" class="contadorSessao">
+        <i class="fa fa-clock-o"></i>&nbsp;<label id="timerContadorSessao">1m 57s</label>
+    </div>
+
+    @Html.Hidden("HdnTimeoutSession", Session.Timeout)
+
+    <!-- CAMINHO DE PÃO -->
+    <div class="breadcrumb">
+
+        @*<img src="@Url.Content("~/content/themes/images/icobreadcrumb.png")" class="icobreadcrumb" alt=""><label><a href='@Url.Action("Inicial", "Home", new { area = "" })' title="Tela Inicial" target="_top">Home</a></label>*@
+        <label><a href='@Url.Action("Inicial", "Home")' title="Tela Inicial"><i class="icobreadcrumb fa fa-home fa-2x"></i> Home</a></label>
+        @if (IsSectionDefined("SecaoMigalhaPao"))
+        {
+            @RenderSection("SecaoMigalhaPao")
+        }
+    </div>
+    <div class="conteudo-container" id="divCorpoPagina">
+        <div class="conteudo-iframe container home">
+            <div class="home">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <div id="divCarregando" class="alert load" style="display:none;">
+        <div id="carregando">
+            <label class="center">Aguarde, CARREGANDO...</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="spin large"></i>
+        </div>
+    </div>
+
+    @*NOTIFICAÇÃO*@
+    <div class="alert alerta" id="box-notificacao" style="display: none;">
+        <div id="alerta_Notificacao" style="left: -15px">
+            <span data-icon="">
+                <img src="@Url.Content("~/content/themes/images/iconPopNotificacao.png")">
+            </span>
+            <br />
+            <label id="lblMsgNotificacao">Tente Novamente.</label>
+            <br />
+            <br />
+            <button id="btnAlertNotificacao">OK</button>
+        </div>
+    </div>
+    @*NOTIFICAÇÃO - FIM*@
+
+    <!--MODELO ALERTA ERRO-->
+    <div id="box-erro" class="modal informativa fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <!-- conteudo-->
+                    <div class="modal-content-erro">
+                        <div class="fa fa-exclamation-triangle fa-5x"></div>
+                        <div id="contentModalError" class="modal-body-erro">
+                            @*Mensagem*@
+                        </div>
+                    </div>
+                    <div class="modal-footer-erro">
+                        <button id="btnAlertErro" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--MODAL RELATÓRIO-->
+    <div id="divModalImprimir" class="modalRelatorio" style="display: none;">
+        <div class="modalRelatorioConteudo" style="height: 85%; width: 93%;">
+            <!-- BARRA -->
+            @(Html.HelperBarra("", id: "divBarraModalImprimir")
+                .InserirBotaoFechar("btnFechaModalImprimir", obj: new { @data_bind = "click: function() {{ fecharModalImprimir('divModalImprimir'); }}" })
+            .Render())
+            <!-- FIM BARRA -->
+            <iframe id="iframeImprimir" class="iframe-imprimir" allowtransparency="true" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    @*ALERTA CONFIRMA*@
+    <div id="modalConfirma" class="modal informativa fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="contentModalConfirm" class="modal-body-confirma">
+                        @*Mensagem*@
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnOkConfirm" data-dismiss="modal">Confirmar</button>
+                    <button id="btnCancelConfirm" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Hidden("MatriculaUsuario", UtilWeb.UsuarioLogado.Matricula)
+
+    <script src="~/Scripts/libs/jquery.signalR-2.2.0.js"></script>
+    <script src="~/Scripts/controller/Notificacao.js"></script>
+    <script src="~/Scripts/service/Notificacao.js"></script>
+
+    <script src="~/signalr/hubs"></script>
+
+    @Html.Hidden("hdnUrlListarNotificacao", Url.Action("ListarNotificacoes", "Notificacao"))
+    @Scripts.Render("~/bundles/util")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script>
+        $(function () {
+
+            App.Util.notificate = $.connection.notificationHub;
+
+            App.Util.notificate.client.addNewMessageToPage = function (message, id) {
+                App.Controllers.Notificacao().AtualizarNotificacao('Notificacao', message, id);
+                notify(message);
+            };
+
+            $.connection.hub.start().done(function () {
+                setTimeout(function () {
+                    App.Util.notificate.server.usuarioStart($("#MatriculaUsuario").val());
+                }, 2000);
+            });
+        });
+
+        var namespaceNotificacao = "Notificacao";
+        var controllerNotificacao = App.Controllers.Notificacao();
+        $(function () {
+            controllerNotificacao.Notificacoes(namespaceNotificacao);
+        });
+    </script>
+</body>
+</html>

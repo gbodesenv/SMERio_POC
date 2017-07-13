@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        tr {
+            page-break-inside: avoid;
+            page-break-after: auto;
+        }
+
+        thead {
+            display: table-header-group;
+        }
+
+        tfoot {
+            display: table-footer-group;
+        }
+
+        .breakhere {
+            page-break-after: always;
+        }
+
+        body {
+            font-family: Calibri, Helvetica, sans-serif;
+        }
+
+        table {
+            z-index: 9999;
+            border-collapse: collapse;
+            padding: 0;
+            margin: 0;
+            border-spacing: 0;
+            page-break-inside: auto;
+        }
+
+        .center {
+            text-align: center !important;
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        table ol {
+            padding-left: 16px;
+            margin: 0;
+            list-style-type: lower-alpha;
+        }
+
+            table ol li {
+                padding: 4px 0;
+            }
+
+        tr {
+            page-break-inside: avoid;
+            page-break-after: auto;
+        }
+
+        thead {
+            display: table-header-group;
+        }
+
+        tfoot {
+            display: table-footer-group;
+        }
+
+        .breakhere {
+            page-break-after: always;
+        }
+
+        body {
+            font-family: Calibri, Helvetica, sans-serif;
+        }
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            padding: 0;
+            margin: 0;
+            border-spacing: 0;
+            page-break-inside: auto;
+        }
+
+        .center {
+            text-align: center !important;
+        }
+
+
+        table ol {
+            padding-left: 16px;
+            margin: 0;
+            list-style-type: lower-alpha;
+        }
+
+            table ol li {
+                padding: 4px 0;
+            }
+
+        .tbl-border td {
+            position: relative;
+            display: block;
+            border: 1px solid #000;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body style="margin-bottom: 0; padding: 0;">
+
+    <div id="wrapper">
+        <table style="margin: 0 auto; width: 800px; height: 10px; border-top: 2px solid #000; border-bottom: 2px solid #000;">
+            <tr style="height: 35px">
+                <td style="padding: 10px" colspan="1" rowspan="2" width="140px">
+                    <img height="45" alt="Brasão Estado de São Paulo" src="http://sistemas7.vitoria.es.gov.br/recursos/pmv/images/brasao_prefeitura_vitoria.png" />
+                </td>
+                <td colspan="3" style="border-bottom: 1px solid #000; width: 290px;font-size: 13px;">
+                    <label>Licenciamento de Atividades</label>
+                </td>
+                <td colspan="3" style="border-bottom: 1px solid #000; text-align: center; font-size: 13px; color: #000000;">
+                    <label>Processo Nº</label>
+                </td>
+                <td style="border-bottom: 1px solid #000; text-align: center; font-size: 13px; color: #000000;">
+                    <label>Folha</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <label style="font-size: 13px;">Secretaria: <span id="unidade"></span></label>
+                </td>
+                <td colspan="3" style="text-align: center">
+                    <div id="divNumProcesso"><label style="font-size: 13px;" id="numProcesso"></label></div>
+                </td>
+                <td colspan="3" style="text-align: center">
+                    <div id="divCapa" style="display: none"><label style="font-size: 13px;" id="capa"></label></div>
+                    <div id="divData" style="display: none"><label style="font-size: 13px;" id="data"></label> - <span id="hora"></span></div>
+                    <div id="divPage" style="display: none;font-size: 13px;"> <label id="page"></label> / <span id="toPage"></span></div>
+                </td>
+            </tr>
+        </table>
+
+
+        <div style="height:20px">&nbsp;</div>
+    </div>
+    <script type="text/javascript">
+        function qs(search_for) {
+            var query = window.location.search.substring(1);
+            var parms = query.split('&');
+            for (var i = 0; i < parms.length; i++) {
+                var pos = parms[i].indexOf('=');
+                if (pos > 0 && search_for === parms[i].substring(0, pos)) {
+                    return parms[i].substring(pos + 1);;
+                }
+            }
+            return "";
+        }
+
+        if (qs("numProcesso") !== "")
+            document.getElementById("numProcesso").innerHTML = qs("numProcesso");
+        if (qs("unidade") !== "")
+            document.getElementById("unidade").innerHTML = qs("unidade");
+        if (qs("date") !== "")
+            document.getElementById("data").innerHTML = qs("date");
+        if (qs("time") !== "")
+            document.getElementById("hora").innerHTML = qs("time").split(":")[0] + ":" + qs("time").split(":")[1];
+        if (qs("page") !== "") {
+
+            if (qs("page") === "1") {
+                document.getElementById("divCapa").style.display = "block";
+                document.getElementById("divPage").style.display = "none";
+                document.getElementById("capa").innerHTML = "Capa";
+
+            } else {
+                var numeroSemContarCapa = qs("page") - 1;
+                document.getElementById("divCapa").style.display = "none";
+                document.getElementById("divPage").style.display = "block";
+                document.getElementById("page").innerHTML = numeroSemContarCapa;
+            }
+        }
+        if (qs("topage") !== "") {
+            var numeroSemContarCapa = qs("topage") - 1;
+            document.getElementById("toPage").innerHTML = numeroSemContarCapa;
+        }
+        if (qs("logo") !== "")
+            document.getElementById("imgLogo").src = qs("logo");
+
+
+
+
+
+    </script>

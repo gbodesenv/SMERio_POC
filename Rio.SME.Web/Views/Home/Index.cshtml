@@ -1,0 +1,126 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    @Styles.Render("~/Content/css")
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/util")
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <title>@ViewBag.Titulo</title>
+    <link rel="shortcut icon" href="@Url.Content("~/Content/themes/imgLogon/favicon.png")" type="image/x-icon">
+
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Logon.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/font-awesome.min.css")" rel="stylesheet" type="text/css" />
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/Service/Login")
+    @Scripts.Render("~/bundles/Controller/Login")
+    @Scripts.Render("~/bundles/util")
+</head>
+<body>
+    @Html.Hidden("hdnImgBackgroundLogon", String.Format("{0}{1}", System.Configuration.ConfigurationManager.AppSettings["CaminhoImagemLogin"], Url.Content("~/content/themes/imgLogon/")))
+    <!-- CONTEUDO DA MODAL LOGON-->
+    <div id="wrapper">
+        <div id="div-conteudo">
+
+            <div id="div-logon">
+                <div class="logoLogin">
+                    <img src="@Url.Content("~/content/themes/imgLogon/logo.png")" />
+                </div>
+                <div class="titulo01">SME</div>
+                <div class="subtitulo01">Sistema de Monitoramento da Qualidade da Educação Infantil</div>
+                <div class="titulo02">PRJ - Prefeitura da Cidade do Rio de Janeiro</div>
+                @using (Html.BeginForm("Index", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "formLogarSistema" }))
+                {
+                    <div class="login-input-area">
+                        <div class="d12">
+                            <input type="text" data-bind="value: IndexLogin.login, valueUpdate: 'keypress'" placeholder="Usuário" required />
+                        </div>
+                        <div class="d12">
+                            <input type="password" data-bind="value: IndexLogin.password, valueUpdate: 'keypress'" placeholder="Senha" required />
+                        </div>
+
+                        <div class="versao">Sistema Atualizado - @ViewBag.Versao</div>
+                        <input type="button" id="btnLogin" data-bind="click: function(){controllerLogin.LogarSistema('IndexLogin')}" class="button azul" value="Acesso ao Sistema" />
+                        @Html.Hidden("hdnUrlLogin", Url.Action("Login"))
+                    </div>
+                }
+                <div class="div-compatibilidade">
+                    <div class="navegadores">
+                        Navegadores compatíveis
+                    </div>
+                    <div style="font-family: sans-serif; color:white; font-size:11px">
+                        <div style="float:left; margin-left:25%;">
+                            <img src="~/content/themes/imgLogon/browser_0113.png" alt="Chrome" />
+                            <div style=" opacity: 0.8;">41+</div>
+                        </div>
+                        <div style="float: left; margin-left: 2%;">
+                            <img src="~/content/themes/imgLogon/browser_022.png" alt="Internet Explorer" />
+                            <div style=" opacity: 0.8;">10+</div>
+                        </div>
+                        <div style="float: left; margin-left: 2%;">
+                            <img src="~/content/themes/imgLogon/browser_032.png" alt="Firefox" />
+                            <div style=" opacity: 0.8;">37+</div>
+                        </div>
+                        <div style="float: left; margin-left: 2%;">
+                            <img src="~/content/themes/imgLogon/browser_041.png" alt="Opera" />
+                            <div style=" opacity: 0.8;">35+</div>
+                        </div>
+                        <div style="float: left; margin-left: 2%;">
+                            <img src="~/content/themes/imgLogon/browser_051.png" alt="Safari" />
+                            <div style=" opacity: 0.8;">5+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="push"></div>
+            </div>
+
+    <div class="footer">
+        <div class="col-md-12">
+            <div id="autorFoto">
+                <label>Foto por: </label>
+                <div class="clearfix"></div>
+                <span id="nomeAutor"></span>
+            </div>
+        </div>
+    </div>
+    
+    <!--MODELO ALERTA ERRO-->
+    <div id="box-erro" class="modal informativa fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <!-- conteudo-->
+                    <div class="modal-content-erro">
+                        <div class="fa fa-exclamation-triangle fa-5x"></div>
+                        <div id="contentModalError" class="modal-body-erro">
+                            @*Mensagem*@
+                        </div>
+                    </div>
+                    <div class="modal-footer-erro">
+                        <button id="btnAlertErro" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var controllerLogin = App.Controllers.Login();
+        controllerLogin.DesenharBackground();
+        $(function () { controllerLogin.Index("IndexLogin"); });
+    </script>
+    @Html.Hidden("hdnUrlLogin", Url.Action("Login", "Home"))
+    @Html.Hidden("hdnReturnUrl", System.Web.HttpUtility.UrlEncode((string)ViewBag.ReturnUrl))
+</body>
+</html>

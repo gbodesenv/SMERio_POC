@@ -1,0 +1,145 @@
+﻿
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #background {
+            background-image: url("marcadagua.jpg");
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            opacity: 0.4;
+            filter: alpha(opacity=40);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            padding: 0;
+            margin: 0;
+            border-spacing: 0;
+        }
+
+        .center {
+            text-align: center !important;
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        table ol {
+            padding-left: 16px;
+            margin: 0;
+            list-style-type: lower-alpha;
+        }
+
+            table ol li {
+                padding: 4px 0;
+            }
+
+        .tbl-border td {
+            position: relative;
+            display: block;
+            border: 1px solid #000;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+
+<body bgcolor="#FFFFFF" style="padding: 0; margin: 0; font: 12px Arial;">
+    <div id="background"></div>
+
+    <!--<div style="margin: 8px auto; width: 720px;">-->
+        
+        <table style="margin:0 auto; width: 720px; height: 80px;">
+            <tr style="border-top: 2px solid #000;">
+                <td style="padding: 10px; border-bottom: 1px solid #000;" colspan="1" rowspan="2" width="140px">
+                    <img height="40" alt="Brasão Estado de São Paulo" src="http://sistemas7.vitoria.es.gov.br/recursos/pmv/images/brasao_prefeitura_vitoria.png" />
+                </td>
+                <td colspan="3" rowspan="2" style="border-bottom: 1px solid #000; width: 290px; text-align: center">
+                    <p id="unidade"></p>
+                </td>
+                <td colspan="3" style="border-bottom: 1px solid #000; text-align: center; font-size: 11px; color: #000000;">
+                    <p class="bold">AUTO DE INTERDIÇÃO</p>
+                </td>
+            </tr>
+            <tr style="border-bottom: 1px solid #000;">
+                <td colspan="3" style="text-align: center;">
+                    <p id="numeroautodocumento"></p>
+                </td>
+            </tr>
+        </table>
+
+    
+        
+    <!--</div>-->
+
+        <script type="text/javascript">
+        function qs(search_for) {
+            var query = window.location.search.substring(1);
+            var parms = query.split('&');
+            for (var i = 0; i < parms.length; i++) {
+                var pos = parms[i].indexOf('=');
+                if (pos > 0 && search_for === parms[i].substring(0, pos)) {
+                    return parms[i].substring(pos + 1);;
+                }
+            }
+            return "";
+        }
+
+        if (qs("numeroautodocumento") !== "")
+            document.getElementById("numeroautodocumento").innerHTML = qs("numeroautodocumento");
+        if (qs("unidade") !== "")
+            document.getElementById("unidade").innerHTML = qs("unidade");
+        if (qs("date") !== "")
+            document.getElementById("data").innerHTML = qs("date");
+        if (qs("time") !== "")
+            document.getElementById("hora").innerHTML = qs("time").split(":")[0] + ":" + qs("time").split(":")[1];
+        if (qs("page") !== "") {
+
+            if (qs("page") === "1") {
+                document.getElementById("divCapa").style.display = "block";
+                document.getElementById("divPage").style.display = "none";
+                document.getElementById("capa").innerHTML = "Capa";
+
+            } else {
+                var numeroSemContarCapa = qs("page") - 1;
+                document.getElementById("divCapa").style.display = "none";
+                document.getElementById("divPage").style.display = "block";
+                document.getElementById("page").innerHTML = numeroSemContarCapa;
+            }
+        }
+        if (qs("topage") !== "") {
+            var numeroSemContarCapa = qs("topage") - 1;
+            document.getElementById("toPage").innerHTML = numeroSemContarCapa;
+        }
+        if (qs("logo") !== "")
+            document.getElementById("imgLogo").src = qs("logo");
+
+
+
+
+
+        </script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿div.gallery .thumbnail > img,
+div.gallery .thumbnail a > img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+div.gallery .thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #ffffff;
+    border: 1px solid #dddddd !important;
+    border-radius: 4px;
+    -webkit-transition: border 0.2s ease-in-out;
+    -o-transition: border 0.2s ease-in-out;
+    transition: border 0.2s ease-in-out;
+}
+
+    div.gallery .thumbnail > img,
+    div.gallery .thumbnail a > img {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+div.gallery a.thumbnail:hover {
+    border-color: #337ab7 !important;
+}
+
+div.gallery .thumbnail .caption {
+    padding: 9px;
+    color: #333333;
+}
+
+div.gallery .selected {
+    border-color: #337ab7 !important;
+}

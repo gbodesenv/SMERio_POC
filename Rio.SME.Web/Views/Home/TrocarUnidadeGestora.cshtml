@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Unidade Gestora - SIGAVIX";
+}
+@Scripts.Render(@"~/bundles/validation")
+@Scripts.Render(@"~/bundles/utilvalidation")
+
+@Styles.Render("~/Content/css")
+@Scripts.Render(@"~/bundles/Service/Login")
+@Scripts.Render(@"~/bundles/Controller/Login")
+
+<script>
+    var controllerLogin = App.Controllers.Login();
+
+    $(function () {
+        controllerLogin.Layout("TrocarUnidadeGestora");
+    });
+</script>
+
+<div class="errocontainerinterno container transparent">
+    <div class="row">
+        <div class="errointerno col-md-offset-4 col-md-4">
+            <div class="erroconteudointerno">
+                Para mudar de <b>Unidade Gestora</b>, selecione a Unidade abaixo.<br />Em caso de dúvidas, contate o suporte técnico.
+                <br /><br />
+                <select style="width:90%; height:31px; color: #000" data-bind="options: TrocarUnidadeGestora.ComboUnidadesGestoras, optionsText: 'Nome', optionsValue: 'Codigo', value: TrocarUnidadeGestora.codigoUnidadeGestora, optionsCaption: 'Selecione...'"></select>
+                <br /><br />
+                <button class="button" data-bind="click:function(){{ controllerLogin.TrocarUnidadeGestora('TrocarUnidadeGestora') }}">Trocar Unidade Gestora</button>
+                @Html.Hidden("hdnUrlListarUnidadesGestoras", Url.Action("ListarUnidadesGestoras"))
+                @Html.Hidden("hdnUrlTrocarUnidadeGestora", Url.Action("TrocarUnidadeGestora"))
+            </div>
+        </div>
+    </div>
+</div>

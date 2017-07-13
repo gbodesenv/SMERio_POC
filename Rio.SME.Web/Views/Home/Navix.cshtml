@@ -1,0 +1,252 @@
+﻿
+<div id='map'></div>
+
+<script src="http://sistemas7.vitoria.es.gov.br/recursos/navixjs/jquery.navix.min.js"></script>
+
+<style>
+    #search {
+        display: block;
+        position: absolute;
+        z-index: 3;
+        top: 20px;
+        left: 75px;
+    }
+
+    .spotlight {
+        z-index: -1;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        border-radius: 50%;
+        opacity: 0;
+        box-shadow: inset rgba(0,0,0,0.25) 0px 0px 20px 20px, rgba(0,0,0,0.25) 0px 0px 0px 1000px;
+        transition: all 1000ms;
+        -moz-transition: all 1000ms;
+        -webkit-transition: all 1000ms;
+    }
+
+    .spotlight-active {
+        z-index: 2;
+        opacity: 1;
+    }
+</style>
+
+<script type="text/javascript">
+    
+    var navix = $('#map').navix({
+        sistema: 79,
+        ambiente: NAVIX_CONFIG.ENV.OUT,
+        //Trecho que traz algumas categorias marcadas para pesquisa por padrão
+        pesquisaInit: [{
+            id: 4,
+            service: 'Mapa'
+        },
+        {
+            id: 5,
+            service: 'MapaBase'
+        }]
+
+        //, where: {
+        //    layer: {
+        //        id: 5,
+        //        service: 'MapaBase'
+        //    },
+        //    clause: "inscricao_imobiliaria = '03.05.004.0494'"
+        //}
+
+        //,
+
+        //Opção de filtrar por lote
+
+        /*where : {
+            layer: {
+                id: 5,
+                service: 'MapaBase'
+            },
+            clause: "inscricao_imobiliaria = 'varInscricaoImobiliaria'"
+        }*/
+
+        //Opção de filtrar por endereco
+
+        /*where : {
+            layer: {
+                id: 4,
+                service: 'Mapa'
+            },
+            clause: "endereco like '%varEndereco%'"
+        }*/
+
+    })
+        .on('navix.identifyend', function (evt, navix, resultados) {
+            //Retorna a inscricao imobiliaria do primeiro resultado do identify
+            //var inscricao = navix.filterResults(navix, resultados[0].campos, "inscrição_imobiliaria")[0];
+
+            var arr = [];
+
+            for (var i = 0; i < resultados.length; i++) {
+                if (navix.filterResults(navix, resultados[i].campos, "inscricao_imobiliaria")[i])
+                    arr.push(navix.filterResults(navix, resultados[i].campos, "inscricao_imobiliaria")[i]);
+            }
+            console.log(arr);
+            console.log(resultados);
+        })
+        .on('navix.mapload', function (evt, navix, resultados) {
+
+            $("#map").height(600);
+        })
+        ;
+
+
+    function setarNavix(navix) {
+        a = navix;
+        a.map.on("click", function (c) {
+            console.log(c);
+
+            require([
+                "esri/geometry/Point",
+                "esri/SpatialReference"
+            ], function (Point, SpatialReference) {
+
+                if (searc) {
+
+                    geo = new Point(c.mapPoint.x, c.mapPoint.y, new SpatialReference({
+                        latestWkid: c.mapPoint.spatialReference.latestWkid,
+                        wkid: c.mapPoint.spatialReference.wkid
+                    }));
+
+                    searc.search(geo).then(function (response) {
+                        console.log(response);
+                    });
+
+                    //melhor jeito de fazer mas, se tiver que pegar os dados de outro lugar, terá que ser feito do jeito acima
+                    //searc.search(c.mapPoint).then(function (response) {
+                    //    console.log(response);
+                    //});
+                }
+
+            });
+
+
+        });
+    }
+
+
+    function teste(a, b) {
+
+
+
+    }
+
+    function setarFuncionalidades(map) {
+        require([
+        "esri/map",
+        "esri/dijit/Search",
+        "esri/geometry/Extent",
+        "esri/graphic",
+        "esri/symbols/SimpleMarkerSymbol",
+        "esri/geometry/screenUtils",
+        "dojo/dom",
+        "dojo/dom-construct",
+        "dojo/query",
+        "dojo/_base/Color",
+        "dojo/domReady!",
+        "esri/geometry/Point",
+        "esri/SpatialReference"
+        ], function (Map, Search, Extent, Graphic, SimpleMarkerSymbol, screenUtils, dom, domConstruct, query, Color, domReady, Point, SpatialReference) {
+
+            var search = new Search({
+                map: map
+            }, dom.byId("search"));
+
+            //dom.byId("search")
+            //$(".input-group input")[0]
+
+            var extent = map.extent;
+
+            var w = map;
+
+            map.on("click", function (c) {
+                console.log(c);
+            });
+
+            //w.on("click", teste);
+            //map.on("click", function (c) {
+            //    debugger;
+            //    geo = new Point(c.mapPoint.x, c.mapPoint.x, new SpatialReference({
+            //        wkid: c.mapPoint.spatialReference.wkid
+            //    }));
+
+            //    search.search(geo).then(function (response) {
+            //        console.log(response);
+            //    });
+
+            //});
+
+            function teste(c) {
+                console.log(c);
+            }
+
+            //set the source's searchExtent to the extent specified above
+            search.sources[0].searchExtent = extent;
+
+            //make sure to start up the widget!
+            search.startup();
+
+            searc = search;
+
+            map.on("load", enableSpotlight);
+            search.on("select-result", showLocation);
+            search.on("clear-search", removeSpotlight);
+
+            function showLocation(e) {
+                map.graphics.clear();
+                var point = e.result.feature.geometry;
+                var symbol = new SimpleMarkerSymbol().setStyle(
+                SimpleMarkerSymbol.STYLE_SQUARE).setColor(
+                  new Color([255, 0, 0, 0.5])
+                );
+                var graphic = new Graphic(point, symbol);
+                map.graphics.add(graphic);
+
+                map.infoWindow.setTitle("Resultado da busca");
+                map.infoWindow.setContent(e.result.name);
+                map.infoWindow.show(e.result.feature.geometry);
+
+                var spotlight = map.on("extent-change", function () {
+                    var geom = screenUtils.toScreenGeometry(map.extent, map.width, map.height, e.result.extent);
+                    var width = geom.xmax - geom.xmin;
+                    var height = geom.ymin - geom.ymax;
+
+                    var max = height;
+                    if (width > height) {
+                        max = width;
+                    }
+
+                    var margin = '-' + Math.floor(max / 2) + 'px 0 0 -' + Math.floor(max / 2) + 'px';
+
+                    query(".spotlight").addClass("spotlight-active").style({
+                        width: max + "px",
+                        height: max + "px",
+                        margin: margin
+                    });
+                    spotlight.remove();
+                });
+            }
+
+            function enableSpotlight() {
+                var html = "<div id='spotlight' class='spotlight'></div>"
+                domConstruct.place(html, dom.byId("map_container"), "first");
+            }
+
+            function removeSpotlight() {
+                query(".spotlight").removeClass("spotlight-active");
+                map.infoWindow.hide();
+                map.graphics.clear();
+            }
+        });
+    }
+
+</script>
+
+<div id="search"></div>
+

@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Usuário Não Autorizado";
+}
+
+<div class="errocontainerinterno container transparent">
+    <div class="row">
+        <div class="errointerno col-md-offset-4 col-md-4">
+            <div class="erroconteudointerno">
+                <div class="emotionUser"><img src="@Url.Content("~/Content/themes/images/iconUserSemAcesso.png")" /></div>
+                <div class="label">
+                    Usuário sem permissão. Contate o suporte técnico.
+                </div>
+                <button class="button" onclick="@Url.Action("Inicial","Home")">Tentar Novamente</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+C:\Users\gabriel.oliveira\Source\Repos\ProjectDDD\Rj.SME.Sismonrio.IOC\bin\Debug\Rj.SME.Sismonrio.IOC.dll
+C:\Users\gabriel.oliveira\Source\Repos\ProjectDDD\Rj.SME.Sismonrio.IOC\bin\Debug\Rj.SME.Sismonrio.IOC.pdb
+C:\Users\gabriel.oliveira\Source\Repos\ProjectDDD\Rj.SME.Sismonrio.IOC\obj\Debug\Rj.SME.Sismonrio.IOC.dll
+C:\Users\gabriel.oliveira\Source\Repos\ProjectDDD\Rj.SME.Sismonrio.IOC\obj\Debug\Rj.SME.Sismonrio.IOC.pdb

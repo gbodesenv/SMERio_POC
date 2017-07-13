@@ -1,0 +1,75 @@
+﻿
+@RenderBody()
+
+@Scripts.Render("~/bundles/util")
+@Scripts.Render("~/bundles/bootstrap")
+
+<div id="divCarregando" class="alert load" style="display:none;">
+    <div id="carregando">
+        <label class="center">Aguarde, CARREGANDO...</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="spin large"></i>
+    </div>
+</div>
+
+@*NOTIFICAÇÃO*@
+<div class="alert alerta" id="box-notificacao" style="display: none;">
+    <div id="alerta_Notificacao" style="left: -15px">
+        <span data-icon="">
+            <img src="@Url.Content("~/content/themes/images/iconPopNotificacao.png")">
+        </span>
+        <br />
+        <label id="lblMsgNotificacao">Tente Novamente.</label>
+        <br />
+        <br />
+        <button id="btnAlertNotificacao">OK</button>
+    </div>
+</div>
+@*NOTIFICAÇÃO - FIM*@
+
+<!--MODELO ALERTA ERRO-->
+<div id="box-erro" class="modal informativa fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <!-- conteudo-->
+                <div class="modal-content-erro">
+                    <div class="fa fa-exclamation-triangle fa-5x"></div>
+                    <div id="contentModalError" class="modal-body-erro">
+                        @*Mensagem*@
+                    </div>
+                </div>
+                <div class="modal-footer-erro">
+                    <button id="btnAlertErro" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--MODAL RELATÓRIO-->
+<div id="divModalImprimir" class="modalRelatorio" style="display: none;">
+    <div class="modalRelatorioConteudo" style="height: 85%; width: 93%;">
+        <!-- BARRA -->
+        @(Html.HelperBarra("", id: "divBarraModalImprimir")
+                .InserirBotaoFechar("btnFechaModalImprimir", obj: new { @data_bind = "click: function() {{ fecharModalImprimir('divModalImprimir'); }}" })
+            .Render())
+        <!-- FIM BARRA -->
+        <iframe id="iframeImprimir" class="iframe-imprimir" allowtransparency="true" frameborder="0"></iframe>
+    </div>
+</div>
+
+@*ALERTA CONFIRMA*@
+<div id="modalConfirma" class="modal informativa fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="contentModalConfirm" class="modal-body-confirma">
+                    @*Mensagem*@
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnOkConfirm" data-dismiss="modal">Confirmar</button>
+                <button id="btnCancelConfirm" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,356 @@
+﻿#mask {
+    position: fixed;
+    z-index: 9993;
+    background-color: #708DA9;
+    display: none;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+.fechaModalLink {
+    position: relative;
+    z-index: 999999 !important;
+    float: right;
+    font-family: 'helvetica';
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    top: 0px;
+    margin-right: 10px;
+    background-color: #fff;
+    padding: 4px 8px;
+    border-radius: 8px 8px 0px 0px;
+}
+
+#boxes #dialog {
+    padding: 0px;
+    position: absolute;
+    margin: -60px auto; /*-150px no original*/
+    width: 96%;
+    z-index: 9994;
+}
+
+
+.conteudo-modal {
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    margin: 0px 0px 0px 0px;
+}
+
+.logon {
+    border: 0px solid rgb(31,62,114);
+    background-color: rgb(255, 255, 255);
+    -moz-box-shadow: 1px 5px 30px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 1px 5px 30px rgba(0,0,0,0.5);
+    box-shadow: 1px 5px 30px rgba(0,0,0,0.5);
+    border-radius: 8px;
+}
+
+
+#modal-bg {
+    background-color: white;
+    width: 98%;
+    height: 99%;
+    margin-left: -10px; /*ADICIONADO PARA CORRIGIR POSIÇÃO*/
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    border: 6px solid rgb(51, 51, 51);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+    -moz-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+    -o-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+}
+
+#boxes .window {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+    z-index: 9996;
+    padding: 0px;
+}
+
+/***INICIO SUBMODAL***/
+#subMask {
+    position: fixed;
+    z-index: 9995;
+    background-color: #708DA9;
+    display: none;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+.fechaModalLink {
+    position: relative;
+    z-index: 999999 !important;
+    float: right;
+    font-family: 'helvetica';
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    top: 0px;
+    margin-right: 10px;
+    background-color: #fff;
+    padding: 4px 8px;
+    border-radius: 8px 8px 0px 0px;
+}
+
+#suBoxes #subDialog {
+    padding: 0px;
+    position: absolute;
+    margin: -120px auto;
+    width: 96%;
+    z-index: 9999;
+}
+
+.conteudo-modal {
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    margin: 0px 0px 0px 0px;
+}
+
+.logon {
+    border: 0px solid rgb(31,62,114);
+    background-color: rgb(255, 255, 255);
+    -moz-box-shadow: 1px 5px 30px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 1px 5px 30px rgba(0,0,0,0.5);
+    box-shadow: 1px 5px 30px rgba(0,0,0,0.5);
+    border-radius: 8px;
+}
+
+
+#subModal-bg {
+    background-color: white;
+    width: 98%;
+    height: 100%;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    border: 6px solid rgb(51, 51, 51);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+    -moz-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+    -o-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+}
+
+
+
+#subBoxes .window {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+    z-index: 9996;
+    padding: 0px;
+}
+
+/***FIM SUBMODAL***/
+
+.fechaModalLink {
+    position: relative;
+    z-index: 999999 !important;
+    float: right;
+    font-family: 'helvetica';
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    top: 0px;
+    margin-right: 10px;
+    background-color: #fff;
+    padding: 4px 8px;
+    border-radius: 8px 8px 0px 0px;
+}
+
+#suBoxes #subSubDialog {
+    padding: 0px;
+    position: absolute;
+    margin: -120px auto;
+    width: 96%;
+    z-index: 9999;
+}
+
+.conteudo-modal {
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    margin: 0px 0px 0px 0px;
+}
+
+.logon {
+    border: 0px solid rgb(31,62,114);
+    background-color: rgb(255, 255, 255);
+    -moz-box-shadow: 1px 5px 30px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 1px 5px 30px rgba(0,0,0,0.5);
+    box-shadow: 1px 5px 30px rgba(0,0,0,0.5);
+    border-radius: 8px;
+}
+
+/***SUB SUBMODAL***/
+#subSubMask {
+    position: fixed;
+    z-index: 9995;
+    background-color: #708DA9;
+    display: none;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+#subSubModal-bg {
+    background-color: white;
+    width: 98%;
+    height: 100%;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    border: 6px solid rgb(51, 51, 51);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+    -moz-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+    -o-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+}
+
+
+
+#subSubBoxes .window {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+    z-index: 9996;
+    padding: 0px;
+}
+
+/*FIM SUBSUBMODAL*/
+
+/***MODAL FILTRO***/
+.modal {
+    background-color: rgba(78, 96, 109, 0.3);
+    line-height: 16px;
+    margin: 0px auto;
+    padding-top: 14%;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 9000;
+}
+
+.modalConteudo {
+    position: relative;
+    margin: 1px auto;
+    display: table;
+    padding: 0px 0px 10px 0px;
+    width: 600px;
+    text-align: left;
+    font-family: helvetica, arial;
+    font-size: 13px;
+    color: #000;
+    background-color: rgb(255, 255, 255);
+    border: 6px solid rgb(51, 51, 51);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    
+    box-shadow: 0 1px 3px rgba(38, 67, 125, .6), inset 0 1px 0 rgba(255, 255, 255, .5);
+    animation: animate-bg 5s linear infinite;
+}
+
+.modalTitulo {
+    padding-bottom: 10px;
+    text-shadow: 0 1px 0 #FFF;
+    width: 100%;
+    height: 30px;
+}
+
+.modalConteudo button {
+    position: relative;
+    display: none!important;
+    float: right;
+    vertical-align: top;
+    margin: 10px 0px 0px 5px;
+    padding: 4px 8px;
+    font-size: 11px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.4);
+    background-clip: padding-box;
+    border: 1px solid #06C;
+    border-radius: 2px;
+    cursor: pointer;
+    -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 1px 2px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+    .modalConteudo button:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        pointer-events: none;
+        background-image: -webkit-radial-gradient(center top, farthest-corner, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+        background-image: -moz-radial-gradient(center top, farthest-corner, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+        background-image: -o-radial-gradient(center top, farthest-corner, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+        background-image: radial-gradient(center top, farthest-corner, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+    }
+
+    .modalConteudo button:hover:before {
+        background-image: -webkit-radial-gradient(farthest-corner, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.03));
+        background-image: -moz-radial-gradient(farthest-corner, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.03));
+        background-image: -o-radial-gradient(farthest-corner, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.03));
+        background-image: radial-gradient(farthest-corner, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.03));
+    }
+
+    .modalConteudo button:active {
+        -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+        .modalConteudo button:active:before {
+            content: none;
+        }
+
+.btnmodal {
+    background: #1097e6;
+    border-color: #0d78b6 #0d78b6 #0b689e;
+    background-image: -webkit-linear-gradient(top, #25a5f0, #1097e6 66%, #0f8ad3);
+    background-image: -moz-linear-gradient(top, #25a5f0, #1097e6 66%, #0f8ad3);
+    background-image: -o-linear-gradient(top, #25a5f0, #1097e6 66%, #0f8ad3);
+    background-image: linear-gradient(to bottom, #25a5f0, #1097e6 66%, #0f8ad3);
+}
+
+    .btnmodal:active {
+        background: #1097e6;
+        border-color: #0b689e #0d78b6 #0d78b6;
+    }
+
+.modal-fieldset {
+    margin: 8px;
+    padding: 10px;
+}
