@@ -84,6 +84,11 @@ C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bi
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\EntityFramework.SqlServer.xml
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\FluentScheduler.pdb
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\FluentScheduler.xml
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Microsoft.AI.Web.xml
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Microsoft.ApplicationInsights.xml
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Microsoft.AspNet.SignalR.Core.xml
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
@@ -108,11 +113,6 @@ C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bi
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\System.Web.WebPages.xml
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\System.Web.WebPages.Deployment.xml
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\System.Web.WebPages.Razor.xml
-C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Microsoft.ApplicationInsights.xml
-C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Microsoft.AI.DependencyCollector.xml
-C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
-C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Microsoft.AI.WindowsServer.xml
-C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Microsoft.AI.Web.xml
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\SimpleInjector.Extensions.LifetimeScoping.xml
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Rio.SME.Repositories.pdb
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Rio.SME.Repositories.dll.config

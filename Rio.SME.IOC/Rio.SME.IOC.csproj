@@ -35,9 +35,22 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Rio.SME.Domain\Rio.SME.Domain.csproj">
+      <Project>{4cc0e530-636d-43cb-838a-84e23c39c5d7}</Project>
+      <Name>Rio.SME.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rio.SME.Repositories\Rio.SME.Repository.csproj">
+      <Project>{e7e082ee-d7ed-47e4-9ed3-0d84b9ddd9ea}</Project>
+      <Name>Rio.SME.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rio.SME.Service\Rio.SME.Service.csproj">
+      <Project>{49c48664-d0f0-4cfe-9a52-660de929d8bb}</Project>
+      <Name>Rio.SME.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\Rio.SME\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="SimpleInjector, Version=3.1.4.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\Rio.SME\packages\SimpleInjector.3.1.4\lib\net45\SimpleInjector.dll</HintPath>
@@ -54,20 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Rio.SME.Domain\Rio.SME.Domain.csproj">
-      <Project>{4cc0e530-636d-43cb-838a-84e23c39c5d7}</Project>
-      <Name>Rio.SME.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Rio.SME.Repositories\Rio.SME.Repository.csproj">
-      <Project>{e7e082ee-d7ed-47e4-9ed3-0d84b9ddd9ea}</Project>
-      <Name>Rio.SME.Repository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Rio.SME.Service\Rio.SME.Service.csproj">
-      <Project>{49c48664-d0f0-4cfe-9a52-660de929d8bb}</Project>
-      <Name>Rio.SME.Service</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

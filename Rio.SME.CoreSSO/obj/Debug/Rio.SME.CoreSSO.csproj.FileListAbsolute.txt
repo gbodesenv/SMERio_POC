@@ -1,0 +1,15 @@
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.CoreSSO\bin\Debug\Rio.SME.CoreSSO.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.CoreSSO\bin\Debug\Rio.SME.CoreSSO.pdb
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.CoreSSO\bin\Debug\MSTech.Business.Common.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.CoreSSO\bin\Debug\MSTech.CoreSSO.BLL.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.CoreSSO\bin\Debug\MSTech.CoreSSO.DAL.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.CoreSSO\bin\Debug\MSTech.CoreSSO.Entities.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.CoreSSO\bin\Debug\MSTech.Data.Common.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.CoreSSO\bin\Debug\MSTech.Log.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.CoreSSO\bin\Debug\MSTech.SAML20.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.CoreSSO\bin\Debug\MSTech.Security.Cryptography.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.CoreSSO\bin\Debug\MSTech.Validation.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.CoreSSO\bin\Debug\MSTech.Web.WebProject.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.CoreSSO\obj\Debug\Rio.SME.CoreSSO.csprojResolveAssemblyReference.cache
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.CoreSSO\obj\Debug\Rio.SME.CoreSSO.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.CoreSSO\obj\Debug\Rio.SME.CoreSSO.pdb
