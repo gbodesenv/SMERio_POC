@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Rio.SME.Domain.Contracts.Services;
+using Rio.SME.Domain.Entities.DTO;
 using Rio.SME.Web.Filters;
 using Rio.SME.Web.Generico;
 using Rio.SME.Web.Models;
@@ -86,70 +87,85 @@ namespace Rio.SME.Web.Controllers
         [HttpPost]
         public ActionResult Login(UserLogin user, string returnUrl)
         {
-            return View();
-//            if (ModelState.IsValid)
-//            {
-//                try
-//                {
-//#if AmbienteNT
-//                    if (user.login.RemoveNonNumbers().Length == 0)
-//                    {
-//                        var lista = _funcionarioService.RetornarFuncionario(2).Where(x => x.Nome.IndexOf(user.login, StringComparison.OrdinalIgnoreCase) >= 0);
-//                        var lista2 = _funcionarioService.RetornarFuncionario(1).Where(x => x.Nome.IndexOf(user.login, StringComparison.OrdinalIgnoreCase) >= 0);
-//                        var lista3 = _funcionarioService.RetornarFuncionario(3).Where(x => x.Nome.IndexOf(user.login, StringComparison.OrdinalIgnoreCase) >= 0);
+            //var coreSSO = new Rio.SME.CoreSSO.Main();
+            //coreSSO.Autenticar();
+            //Session["UsuarioLogado"] = coreSSO._UsuarioDTO;
+            
+            //Session["UsuarioLogado"] = new DTO.Usuario
+            //{
+            //    Autenticado = true,
+            //    Nome = "Gabriel Oliveira",
+            //    Senha = String.Empty,
+            //    Matricula = "0000000000",
+            //    CodigoUnidadeGestora = String.Empty,
+            //    NomeUnidadeGestora = "Porto Alegre",              
+            //    CodigoPessoa = 0,
+            //    NomeCargoPrincipal = "Desenvolvedor .NET"
+            //};
+            return ResponseResult(success: true, url: Url.Action("Inicial", "Home"));
+            //            if (ModelState.IsValid)
+            //            {
+            //                try
+            //                {
+            //#if AmbienteNT
+            //                    if (user.login.RemoveNonNumbers().Length == 0)
+            //                    {
+            //                        var lista = _funcionarioService.RetornarFuncionario(2).Where(x => x.Nome.IndexOf(user.login, StringComparison.OrdinalIgnoreCase) >= 0);
+            //                        var lista2 = _funcionarioService.RetornarFuncionario(1).Where(x => x.Nome.IndexOf(user.login, StringComparison.OrdinalIgnoreCase) >= 0);
+            //                        var lista3 = _funcionarioService.RetornarFuncionario(3).Where(x => x.Nome.IndexOf(user.login, StringComparison.OrdinalIgnoreCase) >= 0);
 
-//                        if (lista.Any())
-//                            user.login = lista.First().Matricula;
-//                        else if (lista2.Any())
-//                            user.login = lista2.First().Matricula;
-//                        else if (lista3.Any())
-//                            user.login = lista3.First().Matricula;
+            //                        if (lista.Any())
+            //                            user.login = lista.First().Matricula;
+            //                        else if (lista2.Any())
+            //                            user.login = lista2.First().Matricula;
+            //                        else if (lista3.Any())
+            //                            user.login = lista3.First().Matricula;
 
-//                        user.password = "teste";
-//                    }
-//#endif
-//                    var funcionario = _funcionarioService.AutenticarFuncionario(user.login, user.password);
-//                    if (funcionario != null && !String.IsNullOrEmpty(funcionario.Nome))
-//                    {
-//                        if (funcionario.UnidadeGestora.Count >= 0)
-//                        {
-//                            DTO.Usuario usuario = new DTO.Usuario
-//                            {
-//                                Autenticado = true,
-//                                Nome = funcionario.Nome,
-//                                Senha = user.password,
-//                                Matricula = funcionario.Matricula,
-//                                CodigoUnidadeGestora = funcionario.UnidadeGestora[0].Codigo.ToString(),
-//                                NomeUnidadeGestora = funcionario.UnidadeGestora[0].Nome,
-//                                GruposPermissao = funcionario.GrupoPermissao,//.Where(x => !x.Nome.Equals(EnumHelper.GetEnumDescription<GrupoPermissaoEnum>(GrupoPermissaoEnum.JuntaRecursoAdministrativo.ToString()))).ToList(),
-//                                CodigoPessoa = funcionario.CodigoPessoa
-//                            };
+            //                        user.password = "teste";
+            //                    }
+            //#endif
+            //                    var funcionario = _funcionarioService.AutenticarFuncionario(user.login, user.password);
+            //                    if (funcionario != null && !String.IsNullOrEmpty(funcionario.Nome))
+            //                    {
+            //                        if (funcionario.UnidadeGestora.Count >= 0)
+            //                        {
+            //                            DTO.Usuario usuario = new DTO.Usuario
+            //                            {
+            //                                Autenticado = true,
+            //                                Nome = funcionario.Nome,
+            //                                Senha = user.password,
+            //                                Matricula = funcionario.Matricula,
+            //                                CodigoUnidadeGestora = funcionario.UnidadeGestora[0].Codigo.ToString(),
+            //                                NomeUnidadeGestora = funcionario.UnidadeGestora[0].Nome,
+            //                                GruposPermissao = funcionario.GrupoPermissao,//.Where(x => !x.Nome.Equals(EnumHelper.GetEnumDescription<GrupoPermissaoEnum>(GrupoPermissaoEnum.JuntaRecursoAdministrativo.ToString()))).ToList(),
+            //                                CodigoPessoa = funcionario.CodigoPessoa
+            //                            };
 
-//                            var funcionalidades = _funcionalidadeService.RetornarFuncionalidades(user.login, user.password, Convert.ToInt32(usuario.CodigoUnidadeGestora));
+            //                            var funcionalidades = _funcionalidadeService.RetornarFuncionalidades(user.login, user.password, Convert.ToInt32(usuario.CodigoUnidadeGestora));
 
-//                            usuario.Funcionalidades = funcionalidades;
-//                            usuario.UnidadesGestoras = funcionario.UnidadeGestora;
+            //                            usuario.Funcionalidades = funcionalidades;
+            //                            usuario.UnidadesGestoras = funcionario.UnidadeGestora;
 
-//                            var grupoPrincipal = Utils.RetornarCargoPrincipal(funcionario.GrupoPermissao);
-//                            usuario.CodigoCargoPrincipal = grupoPrincipal == null ? 0 : grupoPrincipal.Codigo;
-//                            usuario.NomeCargoPrincipal = grupoPrincipal == null ? string.Empty : grupoPrincipal.Nome;
+            //                            var grupoPrincipal = Utils.RetornarCargoPrincipal(funcionario.GrupoPermissao);
+            //                            usuario.CodigoCargoPrincipal = grupoPrincipal == null ? 0 : grupoPrincipal.Codigo;
+            //                            usuario.NomeCargoPrincipal = grupoPrincipal == null ? string.Empty : grupoPrincipal.Nome;
 
-//                            Session["UsuarioLogado"] = usuario;
+            //                            Session["UsuarioLogado"] = usuario;
 
-//                            if (String.IsNullOrEmpty(returnUrl))
-//                                return ResponseResult(success: true, url: Url.Action("Inicial", "Home"));
+            //                            if (String.IsNullOrEmpty(returnUrl))
+            //                                return ResponseResult(success: true, url: Url.Action("Inicial", "Home"));
 
-//                            return ResponseResult(success: true, url: returnUrl);
-//                        }
-//                    }
-//                    return ResponseResult(false, true, null, null, MensagensValidacao.ServicoSegurancaSemPermissao);
-//                }
-//                catch
-//                {
-//                    return ResponseResult(success: false, showMessage: true, messageError: MensagensErro.ErroServicoSeguranca);
-//                }
-//            }
-//            return ResponseResult(success: false);
+            //                            return ResponseResult(success: true, url: returnUrl);
+            //                        }
+            //                    }
+            //                    return ResponseResult(false, true, null, null, MensagensValidacao.ServicoSegurancaSemPermissao);
+            //                }
+            //                catch
+            //                {
+            //                    return ResponseResult(success: false, showMessage: true, messageError: MensagensErro.ErroServicoSeguranca);
+            //                }
+            //            }
+            //            return ResponseResult(success: false);
         }
 
         /// <summary>
@@ -183,9 +199,9 @@ namespace Rio.SME.Web.Controllers
         /// <returns></returns>
         public ActionResult BuscaUsuarioLogado()
         {
-            var UsuarioLogadoDTO = (DTO.Usuario)Session["UsuarioLogado"];
+            var UsuarioLogadoDTO = (UsuarioWeb)Session["UsuarioLogado"];
 
-            Mapper.CreateMap<DTO.Usuario, Models.Usuario>();
+            Mapper.CreateMap<UsuarioWeb, Models.Usuario>();
             var usuarioLogadoMap = Mapper.Map<Models.Usuario>(UsuarioLogadoDTO);
 
             return ResponseResult(true, content: usuarioLogadoMap);

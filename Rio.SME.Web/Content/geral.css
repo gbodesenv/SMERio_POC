@@ -38,7 +38,7 @@ body {
     width: 100%;
     height: 90%;
     min-height: 90%;
-    //overflow: hidden;
+    overflow: hidden;
     background-color: #fff;
     background-image: url(../content/themes/images/fundo.png);
 }
@@ -49,7 +49,7 @@ body {
     width: 100%;
     height: 70px;
     background-color: #0F61A4;
-    background-image: url(../content/themes/images/backCab.jpg);
+    background-image: url(../content/themes/images/logoCab_Escola.jpg);
     background-repeat: no-repeat;
     background-position: left bottom;
 }
@@ -59,11 +59,11 @@ body {
     position: absolute;
     top: 5px;
     left: 35px;
-    width: 44px;
+    width: 232px;
     height: 56px;
     min-height: 56px;
     line-height: 56px;
-    background-image: url(../content/themes/images/logoCab.png);
+    background-image: url(../content/themes/images/logoCab_Escola.png);
     background-repeat: no-repeat;
     background-position: left bottom;
 }
@@ -1068,7 +1068,65 @@ em {
     font-size: 12px;
 }
 
+div#acessibilidade {
+    position: relative;
+    right: 20px;
+    float: right;
+    top: 19px;
+    color: #333;
+    width: 110px;
+    height: 30px;
+    padding: 0 5px;
+    margin-right: 20px;
+    right: 0px;
+    bottom: -60px;
+    z-index: 1;
+    background: #1496AF;
+}
 
+    div#acessibilidade a {
+        color: #fff;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        font-weight: bold;
+        -webkit-border-radius: 3px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 0;
+    }
+
+        div#acessibilidade a:hover {
+            background: #bbb !important;
+            color: #333 !important;
+        }
+
+a.lnkAltoContraste {
+    color: #fff !important;
+    background: #000;
+    margin-left: 5px !important;
+    font-size: 12px;
+}
+
+a.lnkNormal {
+    color: #000 !important;
+    background: #fff;
+    margin-left: 5px !important;
+    font-size: 12px;
+}
+
+a.lnkDiminuirFonte {
+    font-size: 10px;
+}
+
+a.lnkFonteNormal {
+    font-size: 12px;
+}
+
+a.lnkAumentarFonte {
+    font-size: 14px;
+}
 
 /*.contadorSessao {
     float: right;

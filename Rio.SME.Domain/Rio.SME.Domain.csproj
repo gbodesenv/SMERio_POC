@@ -36,6 +36,7 @@
     <Compile Include="Contracts\Data\Global\IRepository.cs" />
     <Compile Include="Contracts\Data\Global\IUnitOfWork.cs" />
     <Compile Include="Contracts\Services\IUsuarioService.cs" />
+    <Compile Include="Entities\DTO\UsuarioWeb.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Enums\FuncionalidadeSeguranca.cs" />
     <Compile Include="Enums\PerfilEnum.cs" />
@@ -85,6 +86,12 @@
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\Rio.SME\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MSTech.CoreSSO.Entities">
+      <HintPath>..\Rio.SME.CoreSSO\_External Dependencies\MSTech.CoreSSO.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="MSTech.Data.Common">
+      <HintPath>..\Rio.SME.CoreSSO\_External Dependencies\MSTech.Data.Common.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />

@@ -1,4 +1,4 @@
-C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\AutoMapper.Net4.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\obj\Debug\Rio.SME.Web.csprojResolveAssemblyReference.cache
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\ApplicationInsights.config
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\roslyn\csc.exe
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\roslyn\csc.exe.config
@@ -26,6 +26,7 @@ C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bi
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\roslyn\vbc.rsp
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\roslyn\VBCSCompiler.exe
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\AutoMapper.Net4.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\NLog.config
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Rio.SME.Web.dll.config
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Rio.SME.Web.dll
@@ -51,9 +52,16 @@ C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bi
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\MiniProfiler.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\MiniProfiler.EntityFramework6.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\MSTech.Business.Common.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\MSTech.CoreSSO.BLL.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\MSTech.CoreSSO.Entities.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\MSTech.Data.Common.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\MSTech.Validation.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\MSTech.Web.WebProject.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Newtonsoft.Json.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\NLog.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Owin.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Rio.SME.CoreSSO.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Rio.SME.Domain.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Rio.SME.IOC.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Rio.SME.Service.dll
@@ -71,8 +79,13 @@ C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bi
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\System.Web.WebPages.Razor.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\WebActivatorEx.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\WebGrease.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\MSTech.Log.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\MSTech.SAML20.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\MSTech.CoreSSO.DAL.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\SimpleInjector.Extensions.LifetimeScoping.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Rio.SME.Repositories.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\MSTech.Security.Cryptography.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Rio.SME.CoreSSO.pdb
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Rio.SME.Domain.pdb
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Rio.SME.IOC.pdb
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Rio.SME.Service.pdb
@@ -116,6 +129,5 @@ C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bi
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\SimpleInjector.Extensions.LifetimeScoping.xml
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Rio.SME.Repositories.pdb
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\bin\Rio.SME.Repositories.dll.config
-C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\obj\Debug\Rio.SME.Web.csprojResolveAssemblyReference.cache
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\obj\Debug\Rio.SME.Web.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Web\obj\Debug\Rio.SME.Web.pdb

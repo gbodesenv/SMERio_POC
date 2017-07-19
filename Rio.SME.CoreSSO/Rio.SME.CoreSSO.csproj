@@ -80,6 +80,7 @@
     <Compile Include="Logout.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Main.cs" />
     <Compile Include="MotherMasterPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -95,6 +96,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionWEB.cs" />
     <Compile Include="UsuarioWEB.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Rio.SME.Domain\Rio.SME.Domain.csproj">
+      <Project>{4cc0e530-636d-43cb-838a-84e23c39c5d7}</Project>
+      <Name>Rio.SME.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

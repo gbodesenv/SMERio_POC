@@ -1,28 +1,28 @@
 ﻿@{
-    ViewBag.Title = "Inicial - SIGAVIX";
+    ViewBag.Title = "Inicial - SME";
 }
 
 @Scripts.Render(@"~/bundles/utilvalidation")
 
-@Scripts.Render(@"~/bundles/Service/Processo")
+@*@Scripts.Render(@"~/bundles/Service/Processo")
 @Scripts.Render(@"~/bundles/Service/Empreendimento")
 @Scripts.Render(@"~/bundles/Service/AutoDocumento")
-@Scripts.Render(@"~/bundles/Service/ProcessoFiscalizacao")
+@Scripts.Render(@"~/bundles/Service/ProcessoFiscalizacao")*@
 
-@Scripts.Render(@"~/bundles/Service/Home")
-@Scripts.Render(@"~/bundles/Controller/Home")
+@*@Scripts.Render(@"~/bundles/Service/Home")
+@Scripts.Render(@"~/bundles/Controller/Home")*@
 
-<script>
+@*<script>
     var controllerHome = App.Controllers.Home();
     var namespace = "Home";
 
     $(function () { controllerHome.Listar(namespace); });
-</script>
+</script>*@
 
 
 <div class="conteudo-iframe container home">
     <div class="home">
-        <div class="col-md-6">
+        @*<div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="col-md-6 form-group">
@@ -193,6 +193,6 @@
                     </div>
                 </a>
             </div>
-        </div>
+        </div>*@
     </div>
 </div>

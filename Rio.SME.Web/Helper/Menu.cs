@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using Rio.SME.Web.DTO;
+using Rio.SME.Domain.Entities.DTO;
 
 namespace Rio.SME.Web.Helper
 {
@@ -167,7 +168,7 @@ namespace Rio.SME.Web.Helper
             // Verifica se o html do Menu já está em sessão
             if (HttpContext.Current.Session["UsuarioLogado"] != null)
             {
-                loginUsuario = ((Usuario)HttpContext.Current.Session["UsuarioLogado"]).Matricula;
+                loginUsuario = ((UsuarioWeb)HttpContext.Current.Session["UsuarioLogado"]).Codigo.ToString();
                 //    if (HttpContext.Current.Session[String.Format("{0}-{1}", loginUsuario, this.Titulo)] != null)
                 //        return new HtmlString(HttpContext.Current.Session[String.Format("{0}-{1}", loginUsuario, this.Titulo)].ToString());
             }

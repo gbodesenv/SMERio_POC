@@ -85,11 +85,11 @@ namespace Rio.SME.Web.Generico
             if (!String.IsNullOrEmpty(caminhoLogo))
                 caminhoCabecalho = String.Format("{0}?logo={1}", caminhoCabecalho, caminhoLogo);
 
-            if (!String.IsNullOrEmpty(UtilWeb.UsuarioLogado.NomeUnidadeGestora))
-                caminhoCabecalho = String.Format("{0}&unidade={1}", caminhoCabecalho, UtilWeb.UsuarioLogado.NomeUnidadeGestora);
+            //if (!String.IsNullOrEmpty(UtilWeb.UsuarioLogado.NomeUnidadeGestora))
+            //    caminhoCabecalho = String.Format("{0}&unidade={1}", caminhoCabecalho, UtilWeb.UsuarioLogado.NomeUnidadeGestora);
 
-            if (!String.IsNullOrEmpty(UtilWeb.UsuarioLogado.NomeUnidadeGestora))
-                caminhoCabecalho = String.Format("{0}&usuarioLogado={1}", caminhoCabecalho, UtilWeb.UsuarioLogado.Nome);
+            //if (!String.IsNullOrEmpty(UtilWeb.UsuarioLogado.NomeUnidadeGestora))
+            //    caminhoCabecalho = String.Format("{0}&usuarioLogado={1}", caminhoCabecalho, UtilWeb.UsuarioLogado.Nome);
 
             if (!String.IsNullOrEmpty(numeroRelatorio))
                 caminhoCabecalho = String.Format("{0}&numrelatorio={1}", caminhoCabecalho, numeroRelatorio);

@@ -4,12 +4,16 @@ C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Servic
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Service\bin\Debug\NLog.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Service\bin\Debug\Rio.SME.Domain.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Service\bin\Debug\System.Web.Mvc.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Service\bin\Debug\MSTech.CoreSSO.Entities.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Service\bin\Debug\EntityFramework.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Service\bin\Debug\System.Web.Razor.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Service\bin\Debug\System.Web.WebPages.Razor.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Service\bin\Debug\System.Web.WebPages.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Service\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Service\bin\Debug\MSTech.Data.Common.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Service\bin\Debug\MSTech.Validation.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Service\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Service\bin\Debug\MSTech.Security.Cryptography.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Service\bin\Debug\Rio.SME.Domain.pdb
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Service\bin\Debug\NLog.xml
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.Service\bin\Debug\EntityFramework.xml

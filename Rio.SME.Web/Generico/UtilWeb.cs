@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
-using Usuario = Rio.SME.Web.DTO.Usuario;
+using UsuarioWeb = Rio.SME.Domain.Entities.DTO.UsuarioWeb;
 
 namespace Rio.SME.Web.Generico
 {
@@ -16,13 +16,13 @@ namespace Rio.SME.Web.Generico
         /// <summary>
         /// Retorna o usuario logado para uso no projeto Web
         /// </summary>
-        public static Usuario UsuarioLogado
+        public static UsuarioWeb UsuarioLogado
         {
             [DebuggerStepThrough()]
             get
             {
                 if (HttpContext.Current != null && HttpContext.Current.Session["UsuarioLogado"] != null)
-                    return (Usuario)HttpContext.Current.Session["UsuarioLogado"];
+                    return (UsuarioWeb)HttpContext.Current.Session["UsuarioLogado"];
                 else
                     throw new ExcecaoSessaoExpirada();
             }

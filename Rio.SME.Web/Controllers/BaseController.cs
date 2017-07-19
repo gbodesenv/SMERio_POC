@@ -41,7 +41,7 @@ namespace Rio.SME.Web.Controllers
         /// </summary>
         protected void Commit()
         {
-            this.CommitTransaction(UtilWeb.UsuarioLogado.CodigoPessoa);
+            this.CommitTransaction(UtilWeb.UsuarioLogado.Codigo);
         }
 
         /// <summary>

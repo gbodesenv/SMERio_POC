@@ -30,14 +30,21 @@ namespace Rio.SME.Infra.IOC
             else
                 Container.Options.DefaultScopedLifestyle = new LifetimeScopeLifestyle(true);
 
+            //cerne da aplicação
             Container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Scoped);
             Container.Register<IContextFactory, ContextFactory>(Lifestyle.Scoped);
 
             // Repositories
             Container.Register<IUsuarioRepository, UsuarioRepository>(Lifestyle.Scoped);
 
+
+
+
             // Services
             Container.Register<IUsuarioService, UsuarioService>(Lifestyle.Transient);
+
+
+
             
             Container.Verify();
         }

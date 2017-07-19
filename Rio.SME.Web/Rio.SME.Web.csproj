@@ -113,6 +113,25 @@
     <Reference Include="MiniProfiler.EntityFramework6, Version=3.0.11.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
       <HintPath>..\Rio.SME\packages\MiniProfiler.EF6.3.0.11\lib\net40\MiniProfiler.EntityFramework6.dll</HintPath>
     </Reference>
+    <Reference Include="MSTech.Business.Common">
+      <HintPath>..\Rio.SME.CoreSSO\_External Dependencies\MSTech.Business.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MSTech.CoreSSO.BLL">
+      <HintPath>..\Rio.SME.CoreSSO\_External Dependencies\MSTech.CoreSSO.BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="MSTech.CoreSSO.Entities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Rio.SME.CoreSSO\_External Dependencies\MSTech.CoreSSO.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="MSTech.Data.Common">
+      <HintPath>..\Rio.SME.CoreSSO\_External Dependencies\MSTech.Data.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MSTech.Validation">
+      <HintPath>..\Rio.SME.CoreSSO\_External Dependencies\MSTech.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="MSTech.Web.WebProject">
+      <HintPath>..\Rio.SME.CoreSSO\_External Dependencies\MSTech.Web.WebProject.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\Rio.SME\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -198,7 +217,6 @@
     <Compile Include="Controllers\CompartilhadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DTO\Seguranca.cs" />
-    <Compile Include="DTO\Usuario.cs" />
     <Compile Include="Filters\CommitedTransaction.cs" />
     <Compile Include="Filters\GenericoVoltarFilter.cs" />
     <Compile Include="Filters\SaveChangesFilter.cs" />
@@ -227,13 +245,8 @@
     <Compile Include="Models\Imagem.cs" />
     <Compile Include="Models\ImprimirDTO.cs" />
     <Compile Include="Models\INamespaceMarker.cs" />
-    <Compile Include="Models\Notificacao.cs" />
-    <Compile Include="Models\Recurso.cs" />
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Models\Usuario.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -665,7 +678,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="obj\Debug\Rio.SME.Web.csproj.FileListAbsolute.txt" />
     <Content Include="Relatorio\footer.html" />
     <Content Include="Relatorio\footerAutoDocumento.html" />
     <Content Include="Relatorio\footerVistaCopia.html" />
@@ -689,10 +701,6 @@
     <Content Include="Content\themes\fonts\icomoon.eot" />
     <Content Include="Content\themes\fonts\icomoon.ttf" />
     <Content Include="Content\themes\fonts\icomoon.woff" />
-    <Content Include="obj\Debug\build.force" />
-    <Content Include="obj\Debug\CoreCompileInputs.cache" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="obj\Debug\Rio.SME.Web.csprojResolveAssemblyReference.cache" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\controller\Home.js" />
@@ -1200,10 +1208,13 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\images\" />
     <Folder Include="Content\swf\swf\" />
-    <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Util\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Rio.SME.CoreSSO\Rio.SME.CoreSSO.csproj">
+      <Project>{38d6e665-52b4-46de-940d-356b67db88cd}</Project>
+      <Name>Rio.SME.CoreSSO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Rio.SME.Domain\Rio.SME.Domain.csproj">
       <Project>{4cc0e530-636d-43cb-838a-84e23c39c5d7}</Project>
       <Name>Rio.SME.Domain</Name>

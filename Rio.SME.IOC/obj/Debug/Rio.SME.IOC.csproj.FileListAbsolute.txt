@@ -14,12 +14,16 @@ C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.IOC\bi
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.IOC\bin\Debug\SimpleInjector.Extensions.LifetimeScoping.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.IOC\bin\Debug\SimpleInjector.Integration.Web.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.IOC\bin\Debug\System.Web.Mvc.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.IOC\bin\Debug\MSTech.CoreSSO.Entities.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.IOC\bin\Debug\EntityFramework.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.IOC\bin\Debug\NLog.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.IOC\bin\Debug\System.Web.Razor.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.IOC\bin\Debug\System.Web.WebPages.Razor.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.IOC\bin\Debug\System.Web.WebPages.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.IOC\bin\Debug\MSTech.Data.Common.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.IOC\bin\Debug\MSTech.Validation.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.IOC\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.IOC\bin\Debug\MSTech.Security.Cryptography.dll
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.IOC\bin\Debug\Rio.SME.Domain.pdb
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.IOC\bin\Debug\Rio.SME.Repositories.pdb
 C:\Users\gabriel.oliveira\Source\Repos\SME_DotNetFramework\v0.1.0\Rio.SME.IOC\bin\Debug\Rio.SME.Repositories.dll.config
