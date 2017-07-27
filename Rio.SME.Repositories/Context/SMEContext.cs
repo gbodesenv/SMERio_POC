@@ -27,8 +27,9 @@ namespace Rio.SME.Repositories.Context
         }
         
         public DbSet<Usuario> Usuario { get; set; }
-   
-            
+        public DbSet<Agrupador> Agrupador { get; set; }
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

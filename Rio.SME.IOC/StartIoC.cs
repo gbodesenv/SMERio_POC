@@ -36,16 +36,15 @@ namespace Rio.SME.Infra.IOC
 
             // Repositories
             Container.Register<IUsuarioRepository, UsuarioRepository>(Lifestyle.Scoped);
-
-
+            Container.Register<IAgrupadorRepository, AgrupadorRepository>(Lifestyle.Scoped);
 
 
             // Services
             Container.Register<IUsuarioService, UsuarioService>(Lifestyle.Transient);
+            Container.Register<IAgrupadorService, AgrupadorService>(Lifestyle.Transient);
 
 
 
-            
             Container.Verify();
         }
     }

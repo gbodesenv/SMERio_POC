@@ -41,7 +41,7 @@ namespace Rio.SME.Web.Controllers
         /// </summary>
         protected void Commit()
         {
-            this.CommitTransaction(UtilWeb.UsuarioLogado.Codigo);
+            this.CommitTransaction();
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Rio.SME.Web.Controllers
         /// <param name="codigoPessoa">O código da pessoa que efetuou a ação</param>
         protected void Commit(int codigoPessoa)
         {
-            this.CommitTransaction(codigoPessoa);
+            this.CommitTransaction();
         }
 
         /// <summary>
@@ -85,10 +85,10 @@ namespace Rio.SME.Web.Controllers
                 url,
                 content,
                 showMessage,
-                message = (success && showMessage && messageError.IsNullOrEmpty()) ? "Rio.SME.Domain.Resources.MensagensSucesso.SucessoPOST" : messageError
+                message = (success && showMessage && messageError.IsNullOrEmpty()) ? "Operação efetuada com sucesso!" : messageError
             }, JsonRequestBehavior.AllowGet);
         }
-        
+
         /// <summary>
         /// Cria retorno para ser usado quando é necessário o retorno de muitos dados na tela, 
         /// por exemplo, conteudo de arquivos em base64
@@ -109,7 +109,7 @@ namespace Rio.SME.Web.Controllers
                 content,
                 showMessage,
                 message = (success && showMessage && messageError.IsNullOrEmpty())
-                        ? "Domain.Resources.MensagensSucesso.SucessoPOST"
+                        ? "Operação efetuada com sucesso!"//Domain.Resources.MensagensSucesso.SucessoPOST
                         : messageError
             }, JsonRequestBehavior.AllowGet);
 
@@ -117,12 +117,12 @@ namespace Rio.SME.Web.Controllers
 
             return jsonResult;
         }
-        //TODO: CODIGO ACIMA REVISAR
+
         #region Métodos auxiliares
 
-        private void CommitTransaction(int codigoPessoa)
+        private void CommitTransaction()
         {
-            var unitOfWork = DependencyResolver.Current.GetService<Domain.Contracts.Data.Global.IUnitOfWork>();
+            var unitOfWork = DependencyResolver.Current.GetService<Rio.SME.Domain.Contracts.Data.Global.IUnitOfWork>();
 
             try
             {
@@ -154,6 +154,11 @@ namespace Rio.SME.Web.Controllers
         }
 
         #endregion
+
+        protected string RetornarBrasaoPrefeituraVitoria()
+        {
+           return Server.MapPath("~\\Content\\themes\\images\\brasaoPrefeituraVitoria.jpg");
+        }
 
     }
 }

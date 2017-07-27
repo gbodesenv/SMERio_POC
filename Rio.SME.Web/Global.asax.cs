@@ -15,7 +15,7 @@ using System.Web.Routing;
 using System.Web.Script.Serialization;
 
 namespace Rio.SME.Web
-{   
+{
     public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
@@ -42,9 +42,9 @@ namespace Rio.SME.Web
 #if !AmbienteNT
             Func<HttpRequest, bool> checkProfileOn = delegate(HttpRequest req)
             {
-                return req.QueryString.AllKeys.Any(x => x == "Profile") ||
+                return req.QueryString.AllKeys.Any(x => x == "MostrarMiniProfilerSigavix") ||
                        (req.UrlReferrer != null &&
-                        req.UrlReferrer.Query.Contains("Profile=true"));
+                        req.UrlReferrer.Query.Contains("MostrarMiniProfilerSigavix=true"));
             };
 #else
             Func<HttpRequest, bool> checkProfileOn = (req) => true;
@@ -52,6 +52,8 @@ namespace Rio.SME.Web
 
             if (!checkProfileOn(HttpContext.Current.Request))
                 return;
+
+            HttpContext.Current.Items["MostrarMiniProfiler"] = true;
 
             MiniProfiler.Start();
             MiniProfiler.Settings.Results_Authorize = checkProfileOn;

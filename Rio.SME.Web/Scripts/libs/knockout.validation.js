@@ -755,7 +755,7 @@ kv.rules['required'] = {
 
 		return ((testVal + '').length > 0);
 	},
-	message: 'This field is required.'
+	message: 'Este campo \u00e9 obrigat\u00f3rio.'
 };
 
 function minMaxValidatorFactory(validatorName) {

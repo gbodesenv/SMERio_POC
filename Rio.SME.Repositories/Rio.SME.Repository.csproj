@@ -36,14 +36,20 @@
     <Compile Include="Context\SMEContext.cs" />
     <Compile Include="Global\Repository.cs" />
     <Compile Include="Global\UnitOfWork.cs" />
+    <Compile Include="Mappings\AgrupadorMap.cs" />
     <Compile Include="Mappings\IMapping.cs" />
     <Compile Include="Mappings\UsuarioMap.cs" />
     <Compile Include="Migrations\201706221312047_initial.cs" />
     <Compile Include="Migrations\201706221312047_initial.Designer.cs">
       <DependentUpon>201706221312047_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707192144144_CreateAgrupadores.cs" />
+    <Compile Include="Migrations\201707192144144_CreateAgrupadores.Designer.cs">
+      <DependentUpon>201707192144144_CreateAgrupadores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AgrupadorRepository.cs" />
     <Compile Include="Repositories\UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +69,9 @@
     <Reference Include="System.Data.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\Rio.SME\packages\System.Data.Common.4.0.0\lib\net46\System.Data.Common.dll</HintPath>
     </Reference>
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Rio.SME\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -79,6 +88,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706221312047_initial.resx">
       <DependentUpon>201706221312047_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707192144144_CreateAgrupadores.resx">
+      <DependentUpon>201707192144144_CreateAgrupadores.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

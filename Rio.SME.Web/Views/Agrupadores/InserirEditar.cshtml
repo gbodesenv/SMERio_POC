@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Áreas - SME";
+    bool? edicao = (bool?)@ViewBag.Editar;
+    int? id = (int?)ViewBag.Id;
+}
+
+@Scripts.Render(@"~/bundles/validation")
+@Scripts.Render(@"~/bundles/utilvalidation")
+
+@Scripts.Render(@"~/bundles/Service/Agrupador")
+@Scripts.Render(@"~/bundles/Controller/Agrupador")
+
+@*@Scripts.Render(@"~/bundles/Service/DicionarioUnidadeMedida")*@
+
+
+<script>
+    var namespaceSalvarAgrupador = "SalvarAgrupador";
+    var currentModel = App.Controllers.Agrupador();
+    $(function () { currentModel.InserirEditar(namespaceSalvarAgrupador) });
+</script>
+
+@section SecaoMigalhaPao{
+    @Html.MigalhaPao("Cadastros Básicos", "Agrupadores", "Listar", "Inserir/Editar")
+}
+
+<div class="container" id="InserirEditarAgrupador">
+    @(Html.HelperBarra("Agrupador")
+        .InserirBotao(BotaoBarra.TipoBotao.Inserir, "btnSalvarAgrupador", "Gravar", "", "Salvar registro", obj: new { @data_bind = "click: function(){{ currentModel.Salvar(namespaceSalvarAgrupador) }}" },
+                permissao: edicao.HasValue && edicao.Value ? FuncionalidadeSeguranca.EditarAgrupadorArea : FuncionalidadeSeguranca.IncluirAgrupadorArea)
+        .InserirBotaoVoltar(Url.Action("RedirecionarVoltar"))
+          .Render())
+    <div class="clearfix"></div>
+    @Html.Hidden("idAgrupador", id);
+    <input data-bind="value: SalvarAgrupador.Id" style="display: none" readonly="readonly" />
+
+    <div class="form-group col-md-7">
+        <label class="labelinput">Nome:<em>*</em></label>
+        <input class="form-control input-sm" data-bind="value: SalvarAgrupador.Nome, validationElement: SalvarAgrupador.Nome" maxlength="200" />
+    </div>
+    <div class="form-group col-md-2">
+        <label class="labelinput" for="ativo">Ativo:</label>
+        <input name="Ativo" id="ativo" type="checkbox" data-bind="checked: SalvarAgrupador.IndicadorAtivo" />
+    </div>
+</div>
+

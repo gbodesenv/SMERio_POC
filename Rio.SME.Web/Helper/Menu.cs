@@ -168,7 +168,7 @@ namespace Rio.SME.Web.Helper
             // Verifica se o html do Menu já está em sessão
             if (HttpContext.Current.Session["UsuarioLogado"] != null)
             {
-                loginUsuario = ((UsuarioWeb)HttpContext.Current.Session["UsuarioLogado"]).Codigo.ToString();
+                loginUsuario = ((UsuarioWeb)HttpContext.Current.Session["UsuarioLogado"]).Matricula;
                 //    if (HttpContext.Current.Session[String.Format("{0}-{1}", loginUsuario, this.Titulo)] != null)
                 //        return new HtmlString(HttpContext.Current.Session[String.Format("{0}-{1}", loginUsuario, this.Titulo)].ToString());
             }

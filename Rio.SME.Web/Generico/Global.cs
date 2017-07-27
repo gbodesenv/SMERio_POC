@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Rio.SME.Domain.Enums;
+using Rio.SME.Domain.Util.Helpers;
+using System;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,8 +14,7 @@ namespace Rio.SME.Web.Generico
         public static String RelatorioCabecalho(HttpRequestBase request)
         {
             var wrapper = new HttpContextWrapper(HttpContext.Current);
-            //TODO esperando definição de logo pois este é o da cetesb
-            string caminhoLogo = "";//UrlHelper.GenerateContentUrl(@"~/content/themes/images/logoRelatorio.png", wrapper);
+            string caminhoLogo = UrlHelper.GenerateContentUrl(@"~/content/themes/images/logoCab.png", wrapper);
 
             string porta = System.Configuration.ConfigurationManager.AppSettings["PortaPublicacao"];
             string caminhoCabecalho = String.Format("{0}{1}/{2}?", request.Url.GetLeftPart(UriPartial.Authority) + porta + (request.ApplicationPath.EndsWith("/") ? request.ApplicationPath : request.ApplicationPath + "/"), "Relatorio", "header.html");
@@ -85,11 +86,11 @@ namespace Rio.SME.Web.Generico
             if (!String.IsNullOrEmpty(caminhoLogo))
                 caminhoCabecalho = String.Format("{0}?logo={1}", caminhoCabecalho, caminhoLogo);
 
-            //if (!String.IsNullOrEmpty(UtilWeb.UsuarioLogado.NomeUnidadeGestora))
-            //    caminhoCabecalho = String.Format("{0}&unidade={1}", caminhoCabecalho, UtilWeb.UsuarioLogado.NomeUnidadeGestora);
+            if (!String.IsNullOrEmpty(UtilWeb.UsuarioLogado.NomeUnidadeGestora))
+                caminhoCabecalho = String.Format("{0}&unidade={1}", caminhoCabecalho, UtilWeb.UsuarioLogado.NomeUnidadeGestora);
 
-            //if (!String.IsNullOrEmpty(UtilWeb.UsuarioLogado.NomeUnidadeGestora))
-            //    caminhoCabecalho = String.Format("{0}&usuarioLogado={1}", caminhoCabecalho, UtilWeb.UsuarioLogado.Nome);
+            if (!String.IsNullOrEmpty(UtilWeb.UsuarioLogado.NomeUnidadeGestora))
+                caminhoCabecalho = String.Format("{0}&usuarioLogado={1}", caminhoCabecalho, UtilWeb.UsuarioLogado.Nome);
 
             if (!String.IsNullOrEmpty(numeroRelatorio))
                 caminhoCabecalho = String.Format("{0}&numrelatorio={1}", caminhoCabecalho, numeroRelatorio);
@@ -111,10 +112,10 @@ namespace Rio.SME.Web.Generico
 
         #region VistaCopia
 
-        /// <summary>
-        /// Caminho do cabeçalho da Vista Cópia
-        /// </summary>
-        //public static String RelatorioCabecalhoVistaCopia(HttpRequestBase request, Rio.SME.Domain.Entities.Processo processo, string nomeUnidadePMV)
+        ///// <summary>
+        ///// Caminho do cabeçalho da Vista Cópia
+        ///// </summary>
+        //public static String RelatorioCabecalhoVistaCopia(HttpRequestBase request, Sigavix.Domain.Entities.Processo processo, string nomeUnidadePMV)
         //{
         //    var wrapper = new HttpContextWrapper(HttpContext.Current);
 
@@ -132,8 +133,7 @@ namespace Rio.SME.Web.Generico
         //    if (processo != null)
         //        caminhoCabecalho = String.Format("{0}&numProcesso={1}", caminhoCabecalho, processo.NumeroProcesso);
 
-
-        //    string caminhoTst = System.Configuration.ConfigurationManager.AppSettings["CaminhoRelatorioPublicacao"];
+        //    caminhoCabecalho = String.Format("{0}&descricaoVistaCopia={1}", caminhoCabecalho, "Licenciamento_de_Atividades");
 
 
         //    return caminhoCabecalho;
@@ -191,14 +191,50 @@ namespace Rio.SME.Web.Generico
         /// <summary>
         /// Caminho do cabeçalho do auto documento
         /// </summary>
-        public static String RelatorioCabecalhoAutoDocumento(HttpRequestBase request, string unidade, string numeroAutoDocumento)
+        //public static String RelatorioCabecalhoAutoDocumento(HttpRequestBase request, string unidade, string numeroAutoDocumento, int? idTipoAutoDocumento, string siglaOrgao)
+        //{
+        //    var wrapper = new HttpContextWrapper(HttpContext.Current);
+
+        //    string caminhoLogo = UrlHelper.GenerateContentUrl(@"~/content/themes/images/logoRelatorio.png", wrapper);
+
+        //    string porta = System.Configuration.ConfigurationManager.AppSettings["PortaPublicacao"];
+        //    string caminhoCabecalho = String.Format("{0}{1}/{2}", request.Url.GetLeftPart(UriPartial.Authority) + porta + (request.ApplicationPath.EndsWith("/") ? request.ApplicationPath : request.ApplicationPath + "/"), "Relatorio", "headerAutoDocumento.html");
+
+        //    if (!String.IsNullOrEmpty(caminhoLogo))
+        //        caminhoCabecalho = String.Format("{0}?logo={1}", caminhoCabecalho, caminhoLogo);
+
+        //    if (!String.IsNullOrEmpty(unidade))
+        //        caminhoCabecalho = String.Format("{0}&unidade={1}", caminhoCabecalho, unidade);
+
+        //    if (!String.IsNullOrEmpty(numeroAutoDocumento))
+        //        caminhoCabecalho = String.Format("{0}&numeroautodocumento={1}", caminhoCabecalho, numeroAutoDocumento);
+
+        //    if (idTipoAutoDocumento.HasValue)
+        //        caminhoCabecalho = String.Format("{0}&tipoautodocumento={1}", caminhoCabecalho, EnumHelper.GetDescriptionFromEnumValue((TipoAutoDocumentoEnum)idTipoAutoDocumento.Value).Replace(' ', '_'));
+
+        //    if (!String.IsNullOrEmpty(siglaOrgao))
+        //        caminhoCabecalho = String.Format("{0}&siglaorgao={1}", caminhoCabecalho, siglaOrgao);
+
+
+
+        //    string caminhoTst = System.Configuration.ConfigurationManager.AppSettings["CaminhoRelatorioPublicacao"];
+
+
+        //    return caminhoCabecalho;
+        //}
+
+
+        /// <summary>
+        /// Caminho do cabeçalho do auto documento
+        /// </summary>
+        public static String RelatorioCabecalhoRelatorioVistoria(HttpRequestBase request, string unidade, string numeroRelatorioVistoria)
         {
             var wrapper = new HttpContextWrapper(HttpContext.Current);
 
             string caminhoLogo = UrlHelper.GenerateContentUrl(@"~/content/themes/images/logoRelatorio.png", wrapper);
 
             string porta = System.Configuration.ConfigurationManager.AppSettings["PortaPublicacao"];
-            string caminhoCabecalho = String.Format("{0}{1}/{2}", request.Url.GetLeftPart(UriPartial.Authority) + porta + (request.ApplicationPath.EndsWith("/") ? request.ApplicationPath : request.ApplicationPath + "/"), "Relatorio", "headerAutoDocumento.html");
+            string caminhoCabecalho = String.Format("{0}{1}/{2}", request.Url.GetLeftPart(UriPartial.Authority) + porta + (request.ApplicationPath.EndsWith("/") ? request.ApplicationPath : request.ApplicationPath + "/"), "Relatorio", "headerRelatorioVistoria.html");
 
             if (!String.IsNullOrEmpty(caminhoLogo))
                 caminhoCabecalho = String.Format("{0}?logo={1}", caminhoCabecalho, caminhoLogo);
@@ -206,8 +242,8 @@ namespace Rio.SME.Web.Generico
             if (!String.IsNullOrEmpty(unidade))
                 caminhoCabecalho = String.Format("{0}&unidade={1}", caminhoCabecalho, unidade);
 
-            if (!String.IsNullOrEmpty(numeroAutoDocumento))
-                caminhoCabecalho = String.Format("{0}&numeroautodocumento={1}", caminhoCabecalho, numeroAutoDocumento);
+            if (!String.IsNullOrEmpty(numeroRelatorioVistoria))
+                caminhoCabecalho = String.Format("{0}&numerorelatoriovistoria={1}", caminhoCabecalho, numeroRelatorioVistoria);
 
 
             string caminhoTst = System.Configuration.ConfigurationManager.AppSettings["CaminhoRelatorioPublicacao"];
@@ -215,6 +251,7 @@ namespace Rio.SME.Web.Generico
 
             return caminhoCabecalho;
         }
+
 
         /// <summary>
         /// Caminho Rodapé dos Relatórios
@@ -263,5 +300,29 @@ namespace Rio.SME.Web.Generico
 
         #endregion Auto Documento
 
+
+        //public static string RelatorioCabecalhoVistaCopia(HttpRequestBase request, Domain.Entities.AutoDocumento autoDocumento, string nomeUnidadePMV)
+        //{
+
+        //    var wrapper = new HttpContextWrapper(HttpContext.Current);
+
+        //    string caminhoLogo = UrlHelper.GenerateContentUrl(@"~/content/themes/images/logoRelatorio.png", wrapper);
+
+        //    string porta = System.Configuration.ConfigurationManager.AppSettings["PortaPublicacao"];
+        //    string caminhoCabecalho = String.Format("{0}{1}/{2}", request.Url.GetLeftPart(UriPartial.Authority) + porta + (request.ApplicationPath.EndsWith("/") ? request.ApplicationPath : request.ApplicationPath + "/"), "Relatorio", "headerVistaCopia.html");
+
+        //    if (!String.IsNullOrEmpty(caminhoLogo))
+        //        caminhoCabecalho = String.Format("{0}?logo={1}", caminhoCabecalho, caminhoLogo);
+
+        //    if (!String.IsNullOrEmpty(nomeUnidadePMV))
+        //        caminhoCabecalho = String.Format("{0}&unidade={1}", caminhoCabecalho, nomeUnidadePMV);
+
+        //    if (autoDocumento != null)
+        //        caminhoCabecalho = String.Format("{0}&numProcesso={1}", caminhoCabecalho, autoDocumento.NumeroAutoDocumento);
+
+        //    caminhoCabecalho = String.Format("{0}&descricaoVistaCopia={1}", caminhoCabecalho, "Autuação");
+
+        //    return caminhoCabecalho;
+        //}
     }
 }

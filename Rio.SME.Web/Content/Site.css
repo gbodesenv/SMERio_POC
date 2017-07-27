@@ -1736,3 +1736,7 @@ a.fa {
 .no-margin {
     margin: 0!important;
 }
+
+.tipo-filtro {
+    min-width: 90px
+}

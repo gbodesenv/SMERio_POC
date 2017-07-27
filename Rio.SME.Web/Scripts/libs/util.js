@@ -72,8 +72,7 @@ function caracteresRestantes(campoLabel, campoTextArea) {
 
     if (qtdText > qtdCaracteres) {
         campoTextArea.val(campoTextArea.val().substring(0, qtdCaracteres));
-    }
-    else {
+    } else {
         var total = qtdCaracteres - qtdText;
         campoLabel.html(total.toString() + " caracteres restantes.");
     }
@@ -111,9 +110,9 @@ function pad(str, max) {
 $(document).ready(function () {
     setupPluginsDataTable();
     atualizarTextArea();
-    atualizarCpfCnpj();
-    atualizarCpf();
-    atualizarCnpj();
+    atualizarCpfCnpj(true);
+    atualizarCpf(true);
+    atualizarCnpj(true);
     atualizarNumericos();
     handleMessages();
     ajustarGridTabs();
@@ -121,13 +120,13 @@ $(document).ready(function () {
     configurarPopover();
     bindingHandlersKnockout();
     //initTinyMce();
-    atualizarTime();
+    atualizarTime(true);
     AtualizarTelefone();
     configurarMascaras();
     configurarEventoMascaraSipad();
     configurarExtendersValidacao();
     atualizarCampoTime();
-    
+
     App.Util.ConfigurarAcessoMobile();
 
     if ($.fn.tooltip)
@@ -203,13 +202,14 @@ function setupPluginsDataTable() {
                 that.oApi._fnProcessingDisplay(oSettings, false);
 
                 /* Callback user function - for event handlers etc */
-                if (typeof fnCallback == 'function' && fnCallback !== null) {
+                if (typeof fnCallback == "function" && fnCallback !== null) {
                     fnCallback(oSettings);
                 }
             }, oSettings);
         };
     }
 }
+
 errors = "";
 function configurarExtendersValidacao() {
     ko.validation.rules["dataMenorHoje"] = {
@@ -225,8 +225,7 @@ function configurarExtendersValidacao() {
             if (myDate > today) {
                 errors = this.message;
                 return false;
-            }
-            else {
+            } else {
                 errors = "";
                 return true;
             }
@@ -246,7 +245,7 @@ function configurarEventoMascaraSipad() {
             $(this).val("").trigger("change");
         } else {
             textoSipad = pad(textoSipad, 11);
-            $(this).val(textoSipad).trigger('change');
+            $(this).val(textoSipad).trigger("change");
         }
     });
 
@@ -258,12 +257,12 @@ function configurarEventoMascaraSipad() {
             $(this).val("").trigger("change");
         } else {
             textoSipad = pad(textoSipad, 12);
-            $(this).val(textoSipad).trigger('change');
+            $(this).val(textoSipad).trigger("change");
         }
     });
 };
 
-function initTinyMce(callback) {    
+function initTinyMce(callback) {
     //Só é necessário iniciar caso algum controle defina o handler WYSIWYG
     if (ko !== undefined) {
         if (ko.bindingHandlers["wysiwyg"] !== undefined) {
@@ -297,7 +296,7 @@ function initTinyMce(callback) {
                 //         $('#image').click();
                 //     }
                 // }                    
-            }
+            };
         }
     }
 }
@@ -452,7 +451,7 @@ function converterFiltro(aoData, filter) {
                     var colunaAnterior = campoValor.parent().prev();
                     var tipo = colunaAnterior.find("select").val();
                     var valor2 = "";
-                    
+
                     if (tipo == "3") {
                         valor2 = campoValor.parent().find("input").last().val();
                     }
@@ -464,17 +463,13 @@ function converterFiltro(aoData, filter) {
     }
 
     for (var i = 0; i < aoData.length; i++) {
-        if (aoData[i].name == "iDisplayLength")
+        if (aoData[i].name == "iDisplayLength") {
             filter["Take"] = aoData[i].value;
-
-        else if (aoData[i].name == "iDisplayStart")
+        } else if (aoData[i].name == "iDisplayStart") {
             filter["Skip"] = aoData[i].value;
-
-        else if (aoData[i].name == "iSortCol_0") {
+        } else if (aoData[i].name == "iSortCol_0") {
             filter["CampoOrdenacao"] = aoData[i].value;
-        }
-
-        else if (aoData[i].name == "sSortDir_0") {
+        } else if (aoData[i].name == "sSortDir_0") {
             filter["Order"] = 0;
 
             if (aoData[i].value == "desc")
@@ -486,15 +481,24 @@ function converterFiltro(aoData, filter) {
 App.ObjetoGlobalControladorDoAguarde = App.ObjetoGlobalControladorDoAguarde || [];
 App.ObjetoGlobalControladorDoAguarde.remove = function () {
     App.ObjetoGlobalControladorDoAguarde.pop();
-    if (!App.ObjetoGlobalControladorDoAguarde.length)
-        $("#divCarregando").hide();
+    if (!App.ObjetoGlobalControladorDoAguarde.length) {
+        App.ObjetoGlobalControladorDoAguarde.div().hide();
+    }
 };
 App.ObjetoGlobalControladorDoAguarde.adiciona = function () {
     if (!App.ObjetoGlobalControladorDoAguarde.length) {
-        $("#divCarregando").show();
+        App.ObjetoGlobalControladorDoAguarde.div().show();
     }
     App.ObjetoGlobalControladorDoAguarde.push(true);
 };
+App.ObjetoGlobalControladorDoAguarde._div = undefined;
+App.ObjetoGlobalControladorDoAguarde.div = function () {
+    if (App.Util.VerificarVazio(this._div)) {
+        this._div = $("#divCarregando");
+    }
+    return this._div;
+};
+
 
 $(document).bind("ajaxSend", function () {
     App.ObjetoGlobalControladorDoAguarde.adiciona();
@@ -502,12 +506,12 @@ $(document).bind("ajaxSend", function () {
     App.ObjetoGlobalControladorDoAguarde.remove();
 }).bind("ajaxStop", function () {
     atualizarTextArea();
-    atualizarCpfCnpj();
-    atualizarCpf();
-    atualizarCnpj();
-    atualizarNumericos();
+    atualizarCpfCnpj(false);
+    atualizarCpf(false);
+    atualizarCnpj(false);
+    //atualizarNumericos();
     atualizarCalendarios();
-    atualizarTime();
+    atualizarTime(false);
     AtualizarTelefone();
     configurarMascaras();
 });
@@ -518,7 +522,7 @@ App.Util.Modal = App.Util.Modal || {};
 
 //é possivel passar uma estrutura de botões personalizada
 //e também uma de opções. Ver http://bootboxjs.com/documentation.html#bb-dialog-options
-App.Util.Modal.CriarModal = function (urlActionView, title, namespace, buttons, options, removeScript) {
+App.Util.Modal.CriarModal = function (urlActionView, title, namespace, buttons, options, removeScript, dados) {
     var message;
 
     //Se passar false, saiba o que está fazendo
@@ -530,21 +534,24 @@ App.Util.Modal.CriarModal = function (urlActionView, title, namespace, buttons, 
         type: "GET",
         dataType: "html",
         contentType: "application/html; charset=utf-8",
+        data: dados,
         url: urlActionView,
         success: function (result) {
-            //bold é para colocar o html inteiro dentro de uma tag e poder trabalhar com ele
-            //sem usar innerHtml ou outerHtml
-            var html = $(result.bold());
-            //Remove os scripts que vem por meio do _ViewStart
-            //e os demais (cuidado)
-            if (removeScript === true)
-                html.find("script").remove();
-            else {
-                html.find('script[src*="jquery"]').remove();
-                html.find('script[src*="libs"]').remove();
-            }
+            App.Util.TratarRetorno(result, function () {
+                //bold é para colocar o html inteiro dentro de uma tag e poder trabalhar com ele
+                //sem usar innerHtml ou outerHtml
+                var html = $(result.bold());
+                //Remove os scripts que vem por meio do _ViewStart
+                //e os demais (cuidado)
+                if (removeScript === true)
+                    html.find("script").remove();
+                else {
+                    html.find('script[src*="jquery"]').remove();
+                    html.find('script[src*="libs"]').remove();
+                }
 
-            message = html.html();
+                message = html.html();
+            });
         }
     });
 
@@ -568,16 +575,16 @@ App.Util.Modal.CriarModal = function (urlActionView, title, namespace, buttons, 
                     label: "Fechar"
                 }
             },
-            onEscape: function () {
-                tinymce.get('tinymce').remove();
+            onEscape: function() {
+                if (typeof (tinymce) !== "undefined" && tinymce && tinymce.get("tinymce"))
+                    tinymce.get("tinymce").remove();
             }
         });
 
         if (!App.Util.VerificarVazio(namespace))
             ko.applyBindings(global[namespace], $(".modalConteudo-bootbox")[0]);
     }
-}
-
+};
 App.Util.Modal.Alerta = function (titulo, mensagem) {
     bootbox.dialog({
         title: titulo,
@@ -666,11 +673,10 @@ App.Util.LimparInformacoes = App.Util.LimparInformacoes || (function (model) {
 });
 
 App.Util.confirmExit = function () {
-    //return "Existem alterações nesta página que não foram salvas.";
-    return;
-}
-
-App.Util.PreencherListaViewModel = function (self, listaOriginal, listaPreencher, objetoAdicionarCasoListaVazia, callback) {
+    return "Existem alterações nesta página que não foram salvas.";
+    //return;
+};
+App.Util.PreencherListaViewModel = function (self, listaOriginal, listaPreencher, objetoAdicionarCasoListaVazia, callback, required) {
     if (listaPreencher.length == 0 && objetoAdicionarCasoListaVazia != undefined) {
         listaPreencher.push(objetoAdicionarCasoListaVazia);
     }
@@ -683,6 +689,9 @@ App.Util.PreencherListaViewModel = function (self, listaOriginal, listaPreencher
         var objToPush = {};
         for (var prop in listaOriginal[i]) {
             objToPush[prop] = ko.observable(listaOriginal[i][prop]);
+
+            if (required === true)
+                objToPush[prop] = objToPush[prop].extend({ required: true });
         }
         App.Util.AssinarChanged(objToPush, listaOriginal[i]);
 
@@ -692,8 +701,7 @@ App.Util.PreencherListaViewModel = function (self, listaOriginal, listaPreencher
     self.subscribe(function (changes) {
         if (self().length != listaOriginal.length) {
             window.onbeforeunload = App.Util.confirmExit;
-        }
-        else {
+        } else {
             window.onbeforeunload = null;
             App.Util.VerificarListas(self, listaOriginal);
         }
@@ -701,8 +709,21 @@ App.Util.PreencherListaViewModel = function (self, listaOriginal, listaPreencher
 
     if (callback)
         callback();
-}
-
+};
+App.Util.PreencherListaPrimitivaViewModel = function (self, listaPreencher) {
+    for (var i = 0; i < listaPreencher.length; i++) {
+        self.push(listaPreencher[i]);
+    }
+};
+App.Util.PreencherLista = function (self, listaPreencher) {
+    for (var i = 0; i < listaPreencher.length; i++) {
+        var objToPush = {};
+        for (var prop in listaPreencher[i]) {
+            objToPush[prop] = ko.observable(listaPreencher[i][prop]);
+        }
+        self.push(objToPush);
+    }
+};
 App.Util.ExisteBotaoGravarVisivel = function () {
     var retorno = false;
     for (var i = 0; i < $("a>span").length; i++) {
@@ -710,8 +731,7 @@ App.Util.ExisteBotaoGravarVisivel = function () {
             retorno = true;
     }
     return retorno;
-}
-
+};
 App.Util.VerificarListas = function (self, listaOriginal) {
     if (!App.Util.ExisteBotaoGravarVisivel()) {
         window.onbeforeunload = null;
@@ -731,12 +751,12 @@ App.Util.VerificarListas = function (self, listaOriginal) {
             }
         }
     }
-    if (retorno == true)
+    if (retorno == true) {
         window.onbeforeunload = App.Util.confirmExit;
-    else
+    } else {
         window.onbeforeunload = null;
-}
-
+    }
+};
 App.Util.PreenchePropriedadesViewModel = function (self, objetoCompleto, NaoVerificarChanged) {
     for (propriedade in objetoCompleto) {
         self[propriedade] = ko.observable(objetoCompleto[propriedade]);
@@ -744,10 +764,19 @@ App.Util.PreenchePropriedadesViewModel = function (self, objetoCompleto, NaoVeri
 
     if (NaoVerificarChanged === undefined || NaoVerificarChanged === false)
         App.Util.AssinarChanged(self, objetoCompleto);
-}
-
+};
 App.Util.AssinarChanged = function (self, objetoCompleto) {
     self.changed = ko.computed(function () {
+
+        //if (App.Util.IsCarregando()) {
+        //    return false;
+        //}
+        //if (App.ObjetoGlobalControladorDoAguarde.div().is(':visible')) {
+        //    return false;
+        ////}
+        //if ($('#divCarregando').is(':visible')) {
+        //    return false;
+        //}
         if (!App.Util.ExisteBotaoGravarVisivel()) {
             window.onbeforeunload = null;
             return false;
@@ -755,28 +784,34 @@ App.Util.AssinarChanged = function (self, objetoCompleto) {
 
         var retorno = false;
         for (var propertyModel in self) {
-            for (var propriedadeOriginal in objetoCompleto) {
-                if (propertyModel == propriedadeOriginal) {
-                    if ((self[propertyModel]() != objetoCompleto[propriedadeOriginal])
-                        && !((objetoCompleto[propriedadeOriginal] == undefined
-                        || objetoCompleto[propriedadeOriginal] == null
-                        || objetoCompleto[propriedadeOriginal] == "")
-                        && (self[propertyModel]() == undefined
-                        || self[propertyModel]() == null
-                        || self[propertyModel]() == "")))
-                        retorno = true;
+            if (self.hasOwnProperty(propertyModel)) {
+                for (var propriedadeOriginal in objetoCompleto) {
+                    if (objetoCompleto.hasOwnProperty(propriedadeOriginal)) {
+                        if (propertyModel === propriedadeOriginal) {
+                            if ((self[propertyModel]() !== objetoCompleto[propriedadeOriginal])
+                                && !((objetoCompleto[propriedadeOriginal] == undefined
+                                        || objetoCompleto[propriedadeOriginal] == null
+                                        || objetoCompleto[propriedadeOriginal] === "")
+                                    && (self[propertyModel]() == undefined
+                                        || self[propertyModel]() == null
+                                        || self[propertyModel]() === "")))
+                                retorno = true;
+                        }
+                    }
                 }
             }
         }
-        if (retorno == true) {
-            window.onbeforeunload = App.Util.confirmExit;
-        }
-        else
+        //Nao tem como colocar o if pro topo, já que o knockout interpreta a função
+        //ao invéz de só chamar ela
+        if (retorno === true && document.getElementById("divCarregando").style.display === "none") {
+            window.onbeforeunload = App.Util.confirmExit;   
+        } else {
             window.onbeforeunload = null;
+        }
+
         return retorno;
     }, self.parent);
-}
-
+};
 App.Util.PreenchePropriedadeViewModelComBind = (function (self, objetoCompleto) {
     for (var propriedade in objetoCompleto) {
         if (typeof objetoCompleto[propriedade] == "string" && objetoCompleto[propriedade].indexOf("/Date(") > -1) {
@@ -784,8 +819,7 @@ App.Util.PreenchePropriedadeViewModelComBind = (function (self, objetoCompleto) 
 
             var jsDate = new Date(parsedDate);
             self[propriedade](jsDate.toLocaleDateString("pt"));
-        }
-        else
+        } else
             self[propriedade](objetoCompleto[propriedade]);
     }
 });
@@ -797,8 +831,7 @@ App.Util.PreenchePropriedades = (function (self, objetoCompleto) {
 });
 
 
-
-App.Util.ImprimirGrid = App.Util.ImprimirGrid || (function (source, tituloBarra, grid, filter) {
+App.Util.ImprimirGrid = App.Util.ImprimirGrid || (function (source, tituloBarra, grid, filter, callback) {
     App.ObjetoGlobalControladorDoAguarde.adiciona();
 
     for (var propriedade in filter) {
@@ -842,11 +875,15 @@ App.Util.ImprimirGrid = App.Util.ImprimirGrid || (function (source, tituloBarra,
         iframe.onreadystatechange = function () {
             if (iframe.readyState == "complete") {
                 App.ObjetoGlobalControladorDoAguarde.remove();
+                if (callback && typeof(callback) == 'function')
+                    callback();
             }
         };
     } else {
         iframe.onload = function () {
             App.ObjetoGlobalControladorDoAguarde.remove();
+            if (callback && typeof (callback) == 'function')
+                callback();
 
             // no caso de o login expirar
             if (iframe.contentDocument.title == "Login Sigavix") {
@@ -860,8 +897,7 @@ App.Util.ImprimirGrid = App.Util.ImprimirGrid || (function (source, tituloBarra,
 App.Util.CriarDataValidando = function (stringData) {
     //formato = dd/MM/yyyy
     return App.Util.CriarDataHoraValidando(stringData + "/00:00");
-}
-
+};
 App.Util.CriarDataHoraValidando = function (stringData) {
     //formato = dd/MM/yyyy/hh:mm
 
@@ -882,8 +918,7 @@ App.Util.CriarDataHoraValidando = function (stringData) {
 
     App.Util.MostrarAlertaErro("Data/Hora inválida.");
     return "";
-}
-
+};
 App.Util.PegarDataAtual = function () {
     //formato = dd/MM/yyyy/hh:mm
 
@@ -905,8 +940,7 @@ App.Util.PegarDataAtual = function () {
         minuto = "0" + minuto;
 
     return dia + "/" + mes + "/" + ano + "/" + hora + ":" + minuto;
-}
-
+};
 App.Util.VerificarVazio = function (obj) {
     // null and undefined are "empty"
     if (typeof obj === "undefined") return true;
@@ -926,7 +960,7 @@ App.Util.VerificarVazio = function (obj) {
     }
 
     return false;
-}
+};
 
 //function mostrarAlerta(mensagens, segundos, classe, functionNotificacao) {
 //    var tempo = typeof (segundos) != "undefined" ? parseInt(parseInt(segundos) * parseInt(1000)) : 5000;
@@ -992,7 +1026,7 @@ App.Util.VerificarVazio = function (obj) {
 //    $("#btnAlertErro").focus();
 //}
 
-App.Util.MostrarAlertaSucesso = function (mensagens, tempo) {//, functionNotificacao) {
+App.Util.MostrarAlertaSucesso = function (mensagens, tempo) { //, functionNotificacao) {
     //alert(mensagem);
     //
     //if (typeof (mensagens) == "string") {
@@ -1021,8 +1055,7 @@ App.Util.MostrarAlertaSucesso = function (mensagens, tempo) {//, functionNotific
     var msg = "";
     if (typeof (mensagens) == "string") {
         msg = mensagens + "<a class='close'>×</a>";
-    }
-    else {
+    } else {
         var i;
         for (i = 0; i < mensagens.length; i++) {
             msg += mensagens[i] + "<a class='close'>×</a> </br>";
@@ -1036,22 +1069,19 @@ App.Util.MostrarAlertaSucesso = function (mensagens, tempo) {//, functionNotific
         fade: "true",
         time: tempo
     });
-}
-
+};
 App.Util.MostrarAlertaErro = function (mensagens) {
     var msg = "";
     if (typeof (mensagens) == "string") {
         msg = mensagens;
-    }
-    else {
+    } else {
         for (var i = 0; i < mensagens.length; i++) {
             msg += mensagens[i] + "</br>";
         }
     }
     $("#contentModalError").html(msg);
     $("#box-erro").modal("show");
-}
-
+};
 App.Util.ConfigurarAcessoMobile = function () {
     var isMobile = $(document).width() <= 992;
     $(".disable-xs input[type=checkbox]").attr("disabled", isMobile);
@@ -1059,12 +1089,10 @@ App.Util.ConfigurarAcessoMobile = function () {
     if (isMobile) {
         $("li:has(.hidden-xs)").remove();
     }
-}
-
+};
 App.Util.AtualizarCalendarios = function () {
     atualizarCalendarios();
-}
-
+};
 App.Util.MostrarAlertaConfirma = function (message, funcConfirm, funcCancel) {
     $("#contentModalConfirm").html(message);
     if (funcConfirm !== null && funcConfirm !== undefined) {
@@ -1072,8 +1100,7 @@ App.Util.MostrarAlertaConfirma = function (message, funcConfirm, funcCancel) {
             funcConfirm();
             $("#modalConfirma").modal("hide");
         });
-    }
-    else {
+    } else {
         $("#btnOkConfirm").off("click").on("click", function () {
             $("#modalConfirma").modal("hide");
         });
@@ -1084,16 +1111,14 @@ App.Util.MostrarAlertaConfirma = function (message, funcConfirm, funcCancel) {
             funcCancel();
             $("#modalConfirma").modal("hide");
         });
-    }
-    else {
+    } else {
         $("#btnCancelConfirm").off("click").on("click", function () {
             $("#modalConfirma").modal("hide");
         });
     }
 
     $("#modalConfirma").modal("show");
-}
-
+};
 App.Util.MontarDadosParaEnvio = function (dataToSent, namespace) {
     for (var prop in global[namespace]) {
         for (var propri in dataToSent) {
@@ -1102,26 +1127,34 @@ App.Util.MontarDadosParaEnvio = function (dataToSent, namespace) {
             }
         }
     }
-}
-
+};
 App.Util.TratarRetorno = function (result, callback) {
-    if (result.success) {
-        callback();
+    if (typeof result.success !== "undefined") {
+        if (result.success === true) {
+            callback();
 
-        if (result.showMessage === true) {
-            App.Util.MostrarAlertaSucesso(result.message, 4000);
+            if (result.showMessage === true) {
+                App.Util.MostrarAlertaSucesso(result.message, 4000);
 
-            window.sessionStorage.setItem("afterRedirectMessage", result.message);
-            //Se nenhum redirect acontecer em 1 segundo, limpa a mensagem
-            setTimeout(function () {
-                window.sessionStorage.removeItem("afterRedirectMessage");
-            }, 1000);
+                window.sessionStorage.setItem("afterRedirectMessage", result.message);
+                //Se nenhum redirect acontecer em 1 segundo, limpa a mensagem
+                setTimeout(function () {
+                    window.sessionStorage.removeItem("afterRedirectMessage");
+                }, 1000);
+            }
+        } else if (result.success === false) {
+            if (result.NaoAutorizado && result.NaoAutorizado === true) {
+                window.onbeforeunload = null;
+                window.location = UrlAction(result.url);
+            } else {
+                App.Util.MostrarAlertaErro(result.message);
+            }
         }
     } else {
-        App.Util.MostrarAlertaErro(result.message);
+        //Caso a controller nao crie o parametro, é melhor chamar o callback mesmo assim
+        callback();
     }
-}
-
+};
 App.Util.SetarFocoErroAba = function () {
     var inputErro = $(".input-validation-error:first");
     if (inputErro) {
@@ -1129,8 +1162,7 @@ App.Util.SetarFocoErroAba = function () {
         if (id)
             $("a[href='#" + id + "']")[0].click();
     }
-}
-
+};
 App.Util.notificate = App.Util.notificate || {};
 
 function UrlAction(sUrlControllerAction) {
@@ -1141,16 +1173,14 @@ function UrlAction(sUrlControllerAction) {
         prefixoSubAplicacao = "/";
 
         //} else if (location.port != "") { // IP SEM CAMINHO DNS
-    }
-    else if (location.hostname == "ccnet.pmv.local") {
+    } else if (location.hostname == "ccnet.pmv.local") {
         pathArray = location.pathname.split("/");
         if (pathArray[0] == "") {
             prefixoSubAplicacao = "/" + pathArray[1] + "/" + pathArray[2] + "/";
         } else {
             prefixoSubAplicacao = "/" + pathArray[0] + "/" + pathArray[1] + "/";
         }
-    }
-    else { // SERVIDOR IIS
+    } else { // SERVIDOR IIS
         pathArray = location.pathname.split("/");
         if (pathArray[0] == "") {
             prefixoSubAplicacao = "/" + pathArray[1] + "/";
@@ -1162,12 +1192,15 @@ function UrlAction(sUrlControllerAction) {
     return prefixoSubAplicacao + sUrlControllerAction;
 }
 
-function atualizarCpfCnpj() {
+function atualizarCpfCnpj(primeiraChamada) {
     $(".cpfcnpj").attr("maxlength", "18"); //Máximo CNPJ
 
-    $(".cpfcnpj").keypress(function () {
-        cpfCnpj(this);
-    });
+    //SÓ É NECESSARIO CHAMAR ISSO UMA VEZ E O UTIL.JS JA FAZ ISSO AUTOMATICAMENTE
+    if (primeiraChamada === true) {
+        $(document).on("keypress", ".cpfcnpj", function () {
+            cpfCnpj(this);
+        });
+    }
 }
 
 function cpfCnpj(obj) {
@@ -1201,15 +1234,18 @@ function cpfCnpj(obj) {
     $(obj).val(v);
 }
 
-function atualizarCnpj() {
+function atualizarCnpj(primeiraChamada) {
     var inputs = $(".cnpj").attr("maxlength", "18"); //Máximo CNPJ
     $.each(inputs, function () {
         formatarCnpj(this);
     });
 
-    $(".cnpj").keypress(function () {
-        formatarCnpj(this);
-    });
+    //SÓ É NECESSARIO CHAMAR ISSO UMA VEZ E O UTIL.JS JA FAZ ISSO AUTOMATICAMENTE
+    if (primeiraChamada === true) {
+        $(document).on("keypress", ".cnpj", function () {
+            formatarCnpj(this);
+        });
+    }
 }
 
 function formatarCnpj(obj) {
@@ -1233,15 +1269,18 @@ function formatarCnpj(obj) {
     $(obj).val(v);
 }
 
-function atualizarCpf() {
+function atualizarCpf(primeiraChamada) {
     var inputs = $(".cpf").attr("maxlength", "14"); //Máximo CPF
     $.each(inputs, function () {
         formatarCpf(this);
     });
 
-    $(".cpf").keypress(function () {
-        formatarCpf(this);
-    });
+    //SÓ É NECESSARIO CHAMAR ISSO UMA VEZ E O UTIL.JS JA FAZ ISSO AUTOMATICAMENTE
+    if (primeiraChamada === true) {
+        $(document).on("keypress", ".cpf", function () {
+            formatarCpf(this);
+        });
+    }
 }
 
 function formatarCpf(obj) {
@@ -1263,9 +1302,19 @@ function formatarCpf(obj) {
     $(obj).val(v);
 }
 
-function atualizarTime() {
+function atualizarTime(primeiraChamada) {
     function formatarTime(obj) {
         var valor = $(obj).val();
+
+        if (valor.length === 4 && valor.indexOf(":") === -1 && $.isNumeric(valor)) {
+            //Se isso aconteceu, o campo está sem mascara
+            $(".time").mask("00:00");
+            valor = valor.substr(0, 2) + ":" + valor.substr(2);
+        }//Campo está sem mascara e o formato está incorreto
+        else if ((valor.length > 4 && valor.indexOf(":") === -1) || (!$.isNumeric(valor) && valor.indexOf(":") === -1)) {
+            $(".time").mask("00:00");
+            valor = "";
+        }
 
         if (valor.length <= 4) {
             valor = "";
@@ -1281,9 +1330,11 @@ function atualizarTime() {
         $(obj).val(valor);
     }
 
-    $(".time").focusout(function () {
-        formatarTime(this);
-    });
+    if (primeiraChamada === true) {
+        $(document).on("focusout", ".time", function () {
+            formatarTime(this);
+        });
+    }
 }
 
 function atualizarCampoTime() {
@@ -1293,15 +1344,21 @@ function atualizarCampoTime() {
 }
 
 function configurarMascaras(obj) {
-    mascaraTelefone($('.telefone'));
-    $('.time').mask('00:00');
-    $('.sipad').mask('000000/0000', {
+    mascaraTelefone($(".telefone"));
+    $(".time").mask("00:00");
+    $(".sipad").mask("000000/0000", {
         //clearIfNotMatch: true,
         placeholder: "______/____",
         reverse: true
     });
 
-    $('.sipadIntegracao').mask('0000000/0000', {
+    //Sipad usado para buscar o código PMV na nossa base (formato mais permissivo)
+    $(".sipadPmv").mask("0000000/0000", {
+        placeholder: "_______/____",
+        reverse: true
+    });
+
+    $(".sipadIntegracao").mask("0000000/0000", {
         //clearIfNotMatch: true,
         placeholder: "_______/____",
         reverse: true
@@ -1309,8 +1366,8 @@ function configurarMascaras(obj) {
 
     //Unica forma que eu encontrei pra essa mascara ser aplicada
     //Em campos que já tem dados
-    $('.cep').mask('00000000');
-    $('.cep').mask('00000-000');
+    $(".cep").mask("00000000");
+    $(".cep").mask("00000-000");
 }
 
 function mascaraTelefone(campo) {
@@ -1402,17 +1459,18 @@ function extrairNomeArquivo(arquivo) {
 }
 
 function atualizarNumericos() {
-    $(".numero").keydown(function (e) {
-        var key = e.charCode || e.keyCode || 0;
-
-        // allow backspace, tab, delete, arrows, numbers and keypad numbers ONLY
-        if (e.shiftKey == true && (key == 7 || key == 9))
-            return true;
-        if (e.shiftKey == false && (key == 8 || key == 13 || key == 9 || key == 46 || key == 194 || key == 110 || (key >= 37 && key <= 40) || (key >= 48 && key <= 57) || (key >= 96 && key <= 105)))
-            return true;
-        else
-            return false;
+    $(document).on("keyup", ".numero", function () {
+        if (this.value != this.value.replace(/[^0-9\.]/g, "")) {
+            this.value = this.value.replace(/[^0-9\.]/g, "");
+        }
     });
+
+    $(document).on("blur", ".numero", function () {
+        if (this.value != this.value.replace(/[^0-9\.]/g, "")) {
+            this.value = this.value.replace(/[^0-9\.]/g, "");
+        }
+    });
+
 }
 
 function verificarDataValida(ano, mes, dia) {
@@ -1454,16 +1512,13 @@ function atualizarCalendarios() {
 
 var notify = function (message) {
     if (!window.Notification) {
-        console.log("Este browser não suporta Web Notifications!");
         return;
     }
 
     if (Notification.permission === "default") {
         Notification.requestPermission(function () {
-            console.log("Usuário não falou se quer ou não notificações. Logo, o requestPermission pede a permissão pra ele.");
         });
     } else if (Notification.permission === "granted") {
-        console.log("Usuário deu permissão");
 
         var notification = new Notification("Notifcação", {
             body: message,
@@ -1471,19 +1526,19 @@ var notify = function (message) {
             icon: "../Content/themes/images/imgInicio001.jpg"
         });
         notification.onshow = function () {
-            console.log("onshow: evento quando a notificação é exibida")
+            //evento quando a notificação é exibida"
         },
-        notification.onclick = function () {
-            console.log("onclick: evento quando a notificação é clicada")
-        },
-        notification.onclose = function () {
-            console.log("onclose: evento quando a notificação é fechada")
-        },
-        notification.onerror = function () {
-            console.log("onerror: evento quando a notificação não pode ser exibida. É disparado quando a permissão é defualt ou denied")
-        }
+            notification.onclick = function () {
+                // evento quando a notificação é clicada"
+            },
+            notification.onclose = function () {
+                //evento quando a notificação é fechada"
+            },
+            notification.onerror = function () {
+                //evento quando a notificação não pode ser exibida. É disparado quando a permissão é defualt ou denied"
+            };
     } else if (Notification.permission === "denied") {
-        console.log("Usuário não deu permissão");
+        //"Usuário não deu permissão"
     }
 };
 
@@ -1633,9 +1688,16 @@ var encodeJS = (function () {
     $.extend({
         toDictionary: function (data, prefix, includeNulls) {
             /// <summary>Flattens an arbitrary JSON object to a dictionary that Asp.net MVC default model binder understands.</summary>
-            /// <param name="data" type="Object">Can either be a JSON object or a function that returns one.</data>
-            /// <param name="prefix" type="String" Optional="true">Provide this parameter when you want the output names to be prefixed by something (ie. when flattening simple values).</param>
-            /// <param name="includeNulls" type="Boolean" Optional="true">Set this to 'true' when you want null valued properties to be included in result (default is 'false').</param>
+            /// <param name="data" type="Object">
+            ///     Can either be a JSON object or a function that returns one.</data>
+            ///     <param name="prefix" type="String" Optional="true">
+            ///         Provide this parameter when you want the output names to be
+            ///         prefixed by something (ie. when flattening simple values).
+            ///     </param>
+            ///     <param name="includeNulls" type="Boolean" Optional="true">
+            ///         Set this to 'true' when you want null valued properties
+            ///         to be included in result (default is 'false').
+            ///     </param>
 
             // get data first if provided parameter is a function
             data = $.isFunction(data) ? data.call() : data;

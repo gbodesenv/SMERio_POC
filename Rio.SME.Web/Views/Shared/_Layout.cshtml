@@ -44,6 +44,19 @@
         <div class="logoTituloCab hidden-xs clickVoltaPaginaInicial">
             @*<label class="clickVoltaPaginaInicial">SME - Sistema de Monitoramento da Qualidade da Educação Infantil </label>*@
         </div>
+        <!-- Usuário -->
+        @*<div class="user">
+            Bem-vindo, <strong>
+                @UtilWeb.UsuarioLogado.Nome
+            </strong>
+            |
+            <a>Meus dados</a>*@            
+            @*<uc1:UCSistemas ID="UCSistemas1" runat="server" />*@            
+            @*<asp:HyperLink ID="hplSair" runat="server" NavigateUrl="~/Logout.ashx">Sair</asp:HyperLink>*@
+      @*  </div> *@
+        @*<span id="spnHelpDesk" class="spnHelpDesk">@UtilWeb.UsuarioLogado.SistemaWebCoreSSO.helpDeskContato</span>
+        <a id="hplHelp">@ViewBag.LinkHelp </a>*@
+
         <div id="acessibilidade">
             <a href="#" title="Diminuir Tamanho da Fonte" class="lnkDiminuirFonte">A</a>
             <a href="#" title="Tamanho da Fonte Normal" class="lnkFonteNormal">A</a>
@@ -74,7 +87,7 @@
                     @if (Session["UsuarioLogado"] != null)
                     {
                         @(Html.HelperMenu("Cadastros")
-                          .AdicionarItemMenuPrincipal(Url.Action("Listar", "Usuario"), FuncionalidadeSeguranca.ListarUsuarioArea, "Usuários")
+                          //.AdicionarItemMenuPrincipal(Url.Action("Listar", "Usuario"), FuncionalidadeSeguranca.ListarUsuarioArea, "Usuários")
                           .AdicionarItemMenuPrincipal(Url.Action("Listar", "Agrupadores"), FuncionalidadeSeguranca.ListarAgrupadorArea, "Agrupadores")
                     .Render())
                     }
@@ -103,8 +116,8 @@
                             </div>
                         </div>
                     </li>
-                    <li><a data-toggle="tooltip" title="Trocar a Unidade Gestora" href="@Url.Action("TrocarUnidadeGestora", "Home")" class="fa fa-exchange"></a></li>
-                    @Html.Hidden("hdnUrlTrocarUnidadeGestora", Url.Action("TrocarUnidadeGestora"))
+                    @*<li><a data-toggle="tooltip" title="Trocar a Unidade Gestora" href="@Url.Action("TrocarUnidadeGestora", "Home")" class="fa fa-exchange"></a></li>*@
+                    @*@Html.Hidden("hdnUrlTrocarUnidadeGestora", Url.Action("TrocarUnidadeGestora"))*@
                     @*<li><a title="Voltar para a Página Inicial" href="@Url.Action("Inicial","Home")" class="icoHome"></a></li>*@
                     <li><a data-toggle="tooltip" href="javascript:void(0);" title="Sair do Sistema" url='@Url.Action("Deslogar", "Home")' id="btnSairSistema" class="fa fa-sign-out"></a></li>
                     @Html.Hidden("hdnUrlDeslogar", Url.Action("Deslogar", "Home"))
@@ -333,39 +346,14 @@
         </div>
     </div>
 
-    @Html.Hidden("MatriculaUsuario", UtilWeb.UsuarioLogado.Matricula)
+    @*@Html.Hidden("MatriculaUsuario", UtilWeb.UsuarioLogado.Matricula)*@
 
     <script src="~/Scripts/libs/jquery.signalR-2.2.0.js"></script>
-    @*<script src="~/Scripts/controller/Notificacao.js"></script>
-    <script src="~/Scripts/service/Notificacao.js"></script>*@
-
     <script src="~/signalr/hubs"></script>
 
-    @*@Html.Hidden("hdnUrlListarNotificacao", Url.Action("ListarNotificacoes", "Notificacao"))*@
     @Scripts.Render("~/bundles/util")
     @Scripts.Render("~/bundles/bootstrap")
-    <script>
-        //$(function () {
-
-        //    App.Util.notificate = $.connection.notificationHub;
-
-        //    App.Util.notificate.client.addNewMessageToPage = function (message, id) {
-        //        App.Controllers.Notificacao().AtualizarNotificacao('Notificacao', message, id);
-        //        notify(message);
-        //    };
-
-        //    $.connection.hub.start().done(function () {
-        //        setTimeout(function () {
-        //            App.Util.notificate.server.usuarioStart($("#MatriculaUsuario").val());
-        //        }, 2000);
-        //    });
-        //});
-
-        //var namespaceNotificacao = "Notificacao";
-        //var controllerNotificacao = App.Controllers.Notificacao();
-        //$(function () {
-        //    controllerNotificacao.Notificacoes(namespaceNotificacao);
-        //});
+    <script>     
     </script>
 </body>
 </html>

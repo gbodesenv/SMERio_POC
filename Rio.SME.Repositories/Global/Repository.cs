@@ -35,7 +35,7 @@ namespace Rio.SME.Repositories.Global
         {
             var old = _dbSet.Where(x => x.Id == entity.Id).SingleOrDefault();
             _db.Entry(old).CurrentValues.SetValues(entity);
-            _db.ChangeObjectState(entity, EntityState.Modified);
+            _db.ChangeObjectState(old, EntityState.Modified);
         }
 
         public virtual void Delete(int id)

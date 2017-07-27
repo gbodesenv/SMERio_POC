@@ -9,8 +9,14 @@ namespace Rio.SME.Domain.Entities.DTO
     {
         public bool Autenticado { get; set; }
         public String MsgRetorno { get; set; }
-        public string Nome { get; set; }
-        public int Codigo { get; set; }
+        public string Matricula { get; set; }
+        public String Nome { get; set; }
+        public String Senha { get; set; }
+        public string CodigoUnidadeGestora { get; set; }
+        public string NomeUnidadeGestora { get; set; }
+        public int CodigoPessoa { get; set; }
+        public string NomeCargoPrincipal { get; set; }
+        public SistemaWebCoreSSO SistemaWebCoreSSO { get; set; }
 
         public SYS_Usuario Usuario { get; set; }
 

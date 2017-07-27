@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Agrupadores - SME";
+}
+@Scripts.Render(@"~/bundles/Service/Agrupador")
+@Scripts.Render(@"~/bundles/Controller/Agrupador")
+
+@Scripts.Render(@"~\bundles\grid")
+@Scripts.Render(@"~\bundles\autocomplete")
+
+
+@section SecaoMigalhaPao{
+    @Html.MigalhaPao("Cadastros", "Agrupadores", "Listar")
+}
+
+<script>
+    var controllerAgrupador = App.Controllers.Agrupador();
+    var idTabelaAgrupador = "tbAgrupador";
+    var urlImprimir = "@Url.Action("ImprimirPDF", "Agrupador")";
+    $(function () {
+        controllerAgrupador.Listar(idTabelaAgrupador, "FiltroAgrupador");
+    });
+</script>
+
+<div id="ListarAgrupador">
+    <!-- FILTRO GRADE -->
+    <div id="divFiltro" class="filtro modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <!-- BARRA FILTRO -->
+                    @(Html.HelperBarra("Agrupadores (Filtro)")
+                    .InserirBotao("btnFiltrarAgrupador", "Filtrar", "Filtrar", obj: new { data_dismiss = "modal", @data_bind = "click: function() {{ controllerAgrupador.Filtrar(FiltroAgrupador, 'divFiltroAgrupador'); }}" })
+                    .InserirBotaoLimpar("btnLimparAgrupador", "divFiltroAgrupador", obj: new { @data_bind = "click: function() {{ App.Util.LimparInformacoes(FiltroAgrupador) }}" })
+                    .InserirBotao("btnFecharFiltroAgrupador", "Fechar", "Fechar", obj: new { data_dismiss = "modal" })
+                .Render()
+                    )
+                    <!-- FIM BARRA FILTRO -->
+                    <table class="tableFiltro">
+                        <tbody>
+                            @FiltroHelper.InserirFiltro(true, FiltroHelper.TipoFiltro.String, "idFiltroCodigo", "", "Codigo", "Codigo:", "", "", obj: new { @data_bind = "value: FiltroAgrupador.Codigo" })
+                            @FiltroHelper.InserirFiltro(true, FiltroHelper.TipoFiltro.String, "idFiltroNome", "", "Nome", "Nome:", "", "", obj: new { @data_bind = "value: FiltroAgrupador.Nome" })                         
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- GRID -->
+    <div class="conteudo-iframe">
+        <!-- FIM FILTRO GRADE-->
+        @(Html.HelperBarra("Agrupadores")
+            .InserirBotao(BotaoBarra.TipoBotao.Inserir, idBotao: "btnIncluirAgrupadr", tituloBotao: "Incluir",hrefBotao: Url.Action("Inserir", "Agrupadores"), legendaBotao:"Inserir Agrupador")
+            .InserirBotaoAbrir("btnAbrirAgrupador", obj: new { @data_bind = "click: function() {{ App.Controllers.Agrupador().Abrir() }};" })
+            //.InserirBotaoExcluir("btnExcluirAgrupador", permissao: FuncionalidadeSeguranca.ExcluirAgrupadorArea, obj: new { @data_bind = "click: function() {{ App.Controllers.Agrupador().Excluir('FiltroAgrupador'); }}", @class = "" })
+            //.InserirBotao("btnImprimirAgrupador", "Imprimir", "Imprimir", obj: new { @data_bind = "click: function() {{ App.Controllers.Agrupador().Imprimir(urlImprimir, 'Agrupadores', FiltroAgrupador ); }}", @class = "hidden-xs hidden-sm" })
+            .InserirBotao("btnAbrirFiltroAgrupador", "Filtrar", "Filtrar", obj: new { data_bind = "click: function() {{ $('.filtro.modal').modal('show'); }}" })
+            .InserirBotaoVoltar(Url.Action("RedirecionarVoltar"))
+        .Render())
+        <table id="tbAgrupador" class="grid head-table display dt-responsive nowrap">
+            <thead>
+                <tr>
+                    <th class="all">Codigo</th>
+                    <th class="all">Nome</th>
+                    <th class="all">Ativo</th>
+                    @*<th class="never"></th>*@
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+</div>

@@ -1,5 +1,7 @@
 ﻿using Rio.SME.Web.DTO;
 using System;
+using System.Data.Entity.Core.Objects;
+using System.Security.Policy;
 using System.Web;
 using System.Web.Mvc;
 
@@ -75,21 +77,32 @@ namespace Rio.SME.Web.Generico
             // Usuário não possui permissão
             else if (!Autorizado)
             {
-                filterContext.Result = new RedirectToRouteResult(
-                    new System.Web.Routing.RouteValueDictionary(
-                        new
-                        {
-                            controller = "Home",
-                            action = "NaoAutorizado",
-                            area = ""
-                        })
-                    );
-
-                //if ajax request set status code and end responcse
-                if (filterContext.HttpContext.Request.IsAjaxRequest())
+                if (!filterContext.HttpContext.Request.IsAjaxRequest())
                 {
-                    filterContext.HttpContext.Response.StatusCode = 401;
-                    filterContext.HttpContext.Response.End();
+                    filterContext.Result = new RedirectToRouteResult(
+                        new System.Web.Routing.RouteValueDictionary(
+                            new
+                            {
+                                controller = "Home",
+                                action = "NaoAutorizado",
+                                area = ""
+                            })
+                        );
+                }
+                else
+                {
+                    filterContext.Result = new JsonResult
+                        {
+                            Data = new
+                            {
+                                success = false,
+                                NaoAutorizado = true,
+                                url = "/Home/NaoAutorizado"
+                            },
+                            ContentEncoding = System.Text.Encoding.UTF8,
+                            JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                        };
+                    filterContext.HttpContext.Response.StatusCode = 200;
                 }
             }
             else

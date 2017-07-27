@@ -31,11 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Contracts\Data\Repositories\IAgrupadorRepository.cs" />
     <Compile Include="Contracts\Data\Repositories\IUsuarioRepository.cs" />
     <Compile Include="Contracts\Entities\IEntity.cs" />
     <Compile Include="Contracts\Data\Global\IRepository.cs" />
     <Compile Include="Contracts\Data\Global\IUnitOfWork.cs" />
+    <Compile Include="Contracts\Services\IAgrupadorService.cs" />
     <Compile Include="Contracts\Services\IUsuarioService.cs" />
+    <Compile Include="Entities\Agrupador.cs" />
+    <Compile Include="Entities\DTO\SistemaWebCoreSSO.cs" />
     <Compile Include="Entities\DTO\UsuarioWeb.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Enums\FuncionalidadeSeguranca.cs" />
@@ -43,6 +47,7 @@
     <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="Exceptions\ServiceException.cs" />
     <Compile Include="Exceptions\ValidationException.cs" />
+    <Compile Include="Filters\AgrupadorFilter.cs" />
     <Compile Include="Filters\Filter.cs" />
     <Compile Include="Filters\UsuarioFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

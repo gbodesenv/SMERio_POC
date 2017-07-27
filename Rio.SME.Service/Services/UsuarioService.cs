@@ -14,7 +14,7 @@
         private readonly IUsuarioRepository _usuarioRepositorio;
 
         public UsuarioService(IUnitOfWork uow,
-            IUsuarioRepository usuarioRepository) 
+            IUsuarioRepository usuarioRepository)
             : base(uow)
         {
             _usuarioRepositorio = usuarioRepository;
@@ -22,37 +22,58 @@
 
         public Usuario Buscar(int id)
         {
-            return _usuarioRepositorio.GetById(id);
+            return TryCatch(() =>
+            {
+                return _usuarioRepositorio.GetById(id);
+            });
         }
 
         public void Excluir(int id)
         {
-            _usuarioRepositorio.Delete(id);
+            TryCatch(() =>
+           {
+               _usuarioRepositorio.Delete(id);
+           });
         }
 
         public Usuario GetUsuarioFromEmail(string email)
         {
-            return _usuarioRepositorio.WhereRaw((u) => u.Email.Contains(email)).FirstOrDefault();
+            return TryCatch(() =>
+            {
+                return _usuarioRepositorio.WhereRaw((u) => u.Email.Contains(email)).FirstOrDefault();
+            });
         }
 
         public IEnumerable<Usuario> Listar(UsuarioFilter filtro)
         {
-            return _usuarioRepositorio.Where(filtro);
+            return TryCatch(() =>
+            {
+                return _usuarioRepositorio.Where(filtro);
+            });
         }
 
         public IEnumerable<Usuario> ListarGrid(UsuarioFilter filtro)
         {
-            return _usuarioRepositorio.All();
+            return TryCatch(() =>
+            {
+                return _usuarioRepositorio.All();
+            });
         }
 
         public void Salvar(Usuario entidade)
         {
-            _usuarioRepositorio.Add(entidade);
+            TryCatch(() =>
+           {
+               _usuarioRepositorio.Add(entidade);
+           });
         }
 
         public bool ValidarUsuario(string email, string senha)
         {
-            return _usuarioRepositorio.ValidarUsuario(email, senha);
+            return TryCatch(() =>
+            {
+                return _usuarioRepositorio.ValidarUsuario(email, senha);
+            });
         }
     }
 }

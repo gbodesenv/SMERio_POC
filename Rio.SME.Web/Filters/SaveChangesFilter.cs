@@ -17,7 +17,7 @@ namespace Rio.SME.Web.Filters
             if (filterContext.Exception == null)
             {
                 var unitOfWork = DependencyResolver.Current.GetService<IUnitOfWork>();
-                unitOfWork.Commit();/*UtilWeb.UsuarioLogado.CodigoPessoa);*/
+                unitOfWork.Commit();
             }
 
             base.OnActionExecuted(filterContext);

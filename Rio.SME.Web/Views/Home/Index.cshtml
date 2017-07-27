@@ -33,11 +33,11 @@
 
             <div id="div-logon">
                 <div class="logoLogin">
-                    <img src="@Url.Content("~/content/themes/imgLogon/logo.png")" />
+                    <img style="height: 97px; width: 72PX;" src="@Url.Content("~/content/themes/imgLogon/logo.png")" />
                 </div>
                 <div class="titulo01">SME</div>
                 <div class="subtitulo01">Sistema de Monitoramento da Qualidade da Educação Infantil</div>
-                <div class="titulo02">PRJ - Prefeitura da Cidade do Rio de Janeiro</div>
+                <div class="titulo02">Prefeitura da Cidade do Rio de Janeiro</div>
                 @using (Html.BeginForm("Index", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "formLogarSistema" }))
                 {
                     <div class="login-input-area">
