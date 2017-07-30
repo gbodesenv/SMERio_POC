@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
-using Rio.SME.Domain.Contracts.Data.Global;
-using Rio.SME.Domain.Contracts.Data.Repositories;
-using Rio.SME.Domain.Entities;
-using Rio.SME.Domain.Filters;
-using Rio.SME.Domain.Contracts.Services;
 
 namespace Rio.SME.Service.Services
 {
+    using Domain.Contracts.Data.Global;
+    using Domain.Contracts.Data.Repositories;
+    using Domain.Contracts.Services;
+    using Domain.Entities;
+    using Domain.Filters;
+
     public class AgrupadorService : Service, IAgrupadorService
     {
         private readonly IAgrupadorRepository _agrupadorRepository;
